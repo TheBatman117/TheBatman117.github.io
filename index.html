@@ -1,44 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NightCafe Applied AI Newsletter</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Applied AI Newsletter</title>
+  <meta name="description" content="Applied AI Newsletter: tools people actually use." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>NightCafe Applied AI Newsletter</h1>
-    <p class="tagline">Covering NightCafe (AI Image Generation)</p>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a>
-    </nav>
+
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">Applied AI</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#featured">Featured</a>
+        <a href="#latest">Latest</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="actions">
+        <a class="btn btn--ghost" href="#subscribe">Subscribe</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- CRITICAL: The dashboard scraper looks for this exact structure -->
-    <ul class="post-list">
-      <li>
-        <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
-        <span class="date">January 25, 2026</span>
-      </li>
-  <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
-  <span class="date">January 25, 2026</span>
-</li>
-  <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
-  <span class="date">January 25, 2026</span>
-</li>
-  <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
-  <span class="date">January 25, 2026</span>
-</li>
 
-      <!-- New posts go ABOVE older posts -->
-    </ul>
+    <!-- Hero -->
+    <section class="hero" aria-label="Featured story">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="kicker">FEATURED STORY</p>
+          <h1 class="hero__title">Claude Code’s “holiday spike” made vibe coding mainstream</h1>
+          <p class="hero__desc">
+            Claude Code surged in late Dec 2025, and Anthropic followed up with agent tooling (Claude Cowork).
+            The bigger shift: implementation is cheap, and the real skill becomes specifying and judging.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="claude-code-holiday-spike.html">Read story</a>
+            <a class="btn btn--ghost" href="#latest">Browse latest</a>
+          </div>
+          <div class="hero__meta" role="list">
+            <span class="pill" role="listitem">AI Coding Agents</span>
+            <span class="pill" role="listitem">Workflows</span>
+            <span class="pill" role="listitem">Dec 2025</span>
+          </div>
+        </div>
+
+        <div class="hero__media" aria-label="Hero panel">
+          <!-- decorative block (no external images needed) -->
+          <div class="hero__panel" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Grid -->
+    <section id="featured" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Featured</h2>
+          <a class="section__link" href="#latest">View all</a>
+        </div>
+
+        <div class="grid grid--tiles">
+          <article class="tile">
+            <a class="tile__link" href="claude-code-holiday-spike.html">
+              <div class="tile__img tile__img--a" aria-hidden="true"></div>
+              <div class="tile__body">
+                <h3>Claude Code goes viral</h3>
+                <p>Adoption spike + agent tooling. The new bottleneck: judgment.</p>
+                <div class="tile__row">
+                  <span class="tag">Agents</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="tile">
+            <a class="tile__link" href="cursor-cli-agent-modes.html">
+              <div class="tile__img tile__img--b" aria-hidden="true"></div>
+              <div class="tile__body">
+                <h3>Cursor CLI Agent Modes</h3>
+                <p>Plan mode + Cloud Handoff brings agent workflows to terminals.</p>
+                <div class="tile__row">
+                  <span class="tag">Dev Tools</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="tile">
+            <a class="tile__link" href="github-agent-hq-cloud-agent.html">
+              <div class="tile__img tile__img--c" aria-hidden="true"></div>
+              <div class="tile__body">
+                <h3>GitHub “mission control”</h3>
+                <p>Agent HQ + Cloud Agent previews push AI deeper into workflows.</p>
+                <div class="tile__row">
+                  <span class="tag">Platforms</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Optional: include your NightCafe post if you want it on this homepage -->
+          <article class="tile">
+            <a class="tile__link" href="nightcafe-sdxl-lightning-flux-updates.html">
+              <div class="tile__img tile__img--d" aria-hidden="true"></div>
+              <div class="tile__body">
+                <h3>NightCafe: SDXL Lightning + Flux</h3>
+                <p>Speed and pricing updates that make iteration a real workflow.</p>
+                <div class="tile__row">
+                  <span class="tag">AI Art</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest List (Epic-style simple list) -->
+    <section id="latest" class="section section--dark">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Latest</h2>
+        </div>
+
+        <ul class="post-list">
+          <li>
+            <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
+            <span class="date">January 25, 2026</span>
+          </li>
+          <li>
+            <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
+            <span class="date">January 25, 2026</span>
+          </li>
+          <li>
+            <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
+            <span class="date">January 25, 2026</span>
+          </li>
+          <li>
+            <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
+            <span class="date">January 25, 2026</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <p>&copy; 2026 Batman117</p>
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Batman117</div>
+    </div>
   </footer>
+
 </body>
 </html>
