@@ -1,115 +1,126 @@
-* {
+/* ===== Night Lightning Color Scheme ===== */
+:root{
+  --bg: #050607;          /* near-black */
+  --bg2: #080a0c;         /* deep charcoal */
+  --card: #0b0f10;        /* panels */
+  --border: rgba(0, 255, 110, 0.18);
+
+  --text: #e7f7ee;        /* soft off-white */
+  --muted: #a2c7b1;       /* muted green-gray */
+
+  --accent: #00ff6a;      /* neon lightning green */
+  --accent2: #00c94e;     /* darker neon */
+  --link: #00ff6a;
+
+  --glow: 0 0 10px rgba(0, 255, 106, .45),
+          0 0 22px rgba(0, 255, 106, .25);
+}
+
+/* Base */
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.65;
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(0,255,106,.08), transparent 55%),
+    radial-gradient(900px 500px at 80% 10%, rgba(0,255,106,.05), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+  color: var(--text);
 }
 
-body {
-  font-family: Georgia, serif;
-  line-height: 1.7;
-  max-width: 800px;
+/* Layout container (if you have one) */
+.container{
+  max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #fafafa;
-  color: #333;
+  padding: 1.25rem;
 }
 
-header {
-  border-bottom: 2px solid #333;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
+/* Header */
+header{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.65)),
+    url("lightning.png") center/cover no-repeat;
 }
 
-header h1 {
-  margin-bottom: 5px;
+
+/* Titles */
+h1, h2, h3{
+  color: var(--text);
+  letter-spacing: .2px;
+}
+h1{
+  text-shadow: var(--glow);
 }
 
-header .tagline {
-  color: #666;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-nav a {
-  color: #0066cc;
+/* Nav links */
+nav a{
+  color: var(--link);
   text-decoration: none;
+  border-bottom: 1px solid rgba(0,255,106,.25);
+}
+nav a:hover{
+  text-shadow: var(--glow);
+  border-bottom-color: rgba(0,255,106,.65);
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Cards / panels */
+.card, article{
+  background: rgba(11, 15, 16, .92);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
 }
 
-/* Post list on index page */
-.post-list {
+/* Post list */
+.post-list{
   list-style: none;
+  padding-left: 0;
 }
-
-.post-list li {
-  margin-bottom: 25px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+.post-list li{
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0,255,106,.12);
 }
-
-.post-list a {
-  font-size: 1.3em;
-  color: #333;
+.post-list a{
+  font-size: 1.15rem;
+  color: var(--text);
   text-decoration: none;
 }
-
-.post-list a:hover {
-  color: #0066cc;
+.post-list a:hover{
+  color: var(--accent);
+  text-shadow: var(--glow);
 }
-
-.post-list .date {
+.date{
   display: block;
-  margin-top: 5px;
-  color: #666;
+  margin-top: .35rem;
+  color: var(--muted);
   font-style: italic;
 }
 
-/* Individual post pages */
-article h2 {
-  margin-bottom: 5px;
+/* Code styling */
+code{
+  background: rgba(0,255,106,.08);
+  border: 1px solid rgba(0,255,106,.18);
+  padding: .1rem .35rem;
+  border-radius: 8px;
+  color: var(--accent);
 }
 
-article .date {
-  color: #666;
-  font-style: italic;
-  margin-bottom: 20px;
+/* Callout block */
+.callout, blockquote{
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid rgba(0,255,106,.75);
+  background: rgba(0,255,106,.08);
+  border-radius: 12px;
 }
 
-article p {
-  margin-bottom: 1em;
-}
-
-blockquote {
-  border-left: 3px solid #ccc;
-  margin: 1.5em 0;
-  padding-left: 1em;
-  font-style: italic;
-  color: #555;
-}
-
-footer {
-  margin-top: 50px;
-  padding-top: 20px;
-  border-top: 1px solid #ccc;
-  color: #666;
-  font-size: 0.9em;
-}
-
-/* Images in posts */
-article img {
-  max-width: 100%;
-  height: auto;
-  margin: 1.5em 0;
-}
-
-.image-caption {
-  font-size: 0.9em;
-  color: #666;
-  font-style: italic;
-  text-align: center;
-  margin-top: -1em;
-  margin-bottom: 1.5em;
+/* Footer */
+footer{
+  margin-top: 2rem;
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
 }
