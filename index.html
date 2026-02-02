@@ -7,30 +7,31 @@
   <meta name="description" content="Applied AI Newsletter: tools people actually use." />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="riot">
 
   <!-- Top Nav -->
-  <header class="topbar">
-    <div class="wrap topbar__inner">
+  <header class="riot-topbar">
+    <div class="wrap riot-topbar__inner">
 
       <!-- Hamburger (LEFT) -->
-      <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">
+      <button class="hamburger riot-hamburger" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand__mark" aria-hidden="true"></span>
-        <span class="brand__name">Applied AI</span>
+      <a class="riot-brand" href="index.html" aria-label="Home">
+        <span class="riot-brand__mark" aria-hidden="true">AI</span>
+        <span class="riot-brand__name">Applied AI</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="riot-nav" aria-label="Primary">
+        <a href="#happening">What’s happening</a>
         <a href="#featured">Featured</a>
-        <a href="#latest">Latest</a>
+        <a href="#latest">News</a>
         <a href="about.html">About</a>
       </nav>
 
-      <div class="actions">
-        <a class="btn btn--ghost" href="#subscribe">Subscribe</a>
+      <div class="riot-actions">
+        <a class="riot-pill" href="#latest">Browse</a>
       </div>
     </div>
   </header>
@@ -69,130 +70,164 @@
 
   <main>
 
-    <!-- Hero (LATEST NEWSLETTER) -->
-    <section class="hero" aria-label="Featured story">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="kicker">LATEST STORY</p>
-          <h1 class="hero__title">NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</h1>
-          <p class="hero__desc">
-            A practical NightCafe pipeline for building cohesive worlds: use fast iteration (SDXL Lightning) to explore mood,
-            Flux models for higher-quality baseline results, and guidance tools like ControlNet workflows to keep composition consistent
-            across multiple scenes.
-          </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="nightcafe-three-scenes-workflows.html">Read story</a>
-            <a class="btn btn--ghost" href="#latest">Browse latest</a>
-          </div>
-          <div class="hero__meta" role="list">
-            <span class="pill" role="listitem">NightCafe</span>
-            <span class="pill" role="listitem">Workflows</span>
-            <span class="pill" role="listitem">Worldbuilding</span>
-          </div>
+    <!-- HERO (Riot-style: big media + overlay copy) -->
+    <section class="riot-hero" aria-label="Hero story">
+      <div class="riot-hero__bg" style="background-image:url('images/home-hero.jpg');"></div>
+
+      <div class="wrap riot-hero__content">
+        <p class="riot-kicker">LATEST STORY</p>
+        <h1 class="riot-hero__title">
+          NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding
+        </h1>
+        <p class="riot-hero__desc">
+          A practical NightCafe pipeline: use fast iteration (SDXL Lightning) to explore mood, Flux models for higher-quality baseline results,
+          and guided composition workflows to keep multi-scene worlds consistent.
+        </p>
+
+        <div class="riot-hero__cta">
+          <a class="riot-btn riot-btn--primary" href="nightcafe-three-scenes-workflows.html">Read story</a>
+          <a class="riot-btn riot-btn--ghost" href="#happening">See what’s happening</a>
         </div>
 
-        <div class="hero__media" aria-label="Hero panel">
-          <div class="hero__panel" aria-hidden="true"></div>
+        <div class="riot-chips" role="list">
+          <span class="riot-chip" role="listitem">NightCafe</span>
+          <span class="riot-chip" role="listitem">Workflows</span>
+          <span class="riot-chip" role="listitem">Iteration speed</span>
         </div>
       </div>
     </section>
 
-    <!-- Featured Grid -->
-    <section id="featured" class="section">
+    <!-- WHAT'S HAPPENING (Riot-style feed cards) -->
+    <section id="happening" class="riot-section">
       <div class="wrap">
+        <div class="riot-section__head">
+          <h2>What’s happening?</h2>
+          <a class="riot-link" href="#latest">See more</a>
+        </div>
 
-        <!-- Centered Featured header -->
-        <div class="section__head section__head--center">
+        <div class="riot-feed">
+          <a class="riot-feed__card" href="nightcafe-three-scenes-workflows.html">
+            <div class="riot-feed__meta">
+              <span class="riot-tag">NightCafe</span>
+              <span class="riot-date">Jan 25, 2026</span>
+            </div>
+            <h3>NightCafe “three-scene” workflow</h3>
+            <p>Lightning + Flux + guided composition for consistent multi-scene worlds.</p>
+          </a>
+
+          <a class="riot-feed__card" href="nightcafe-sdxl-lightning-flux-updates.html">
+            <div class="riot-feed__meta">
+              <span class="riot-tag">AI Art</span>
+              <span class="riot-date">Jan 25, 2026</span>
+            </div>
+            <h3>SDXL Lightning + Flux updates</h3>
+            <p>Speed and pricing updates that turn “generate” into a workflow.</p>
+          </a>
+
+          <a class="riot-feed__card" href="github-agent-hq-cloud-agent.html">
+            <div class="riot-feed__meta">
+              <span class="riot-tag">Dev</span>
+              <span class="riot-date">Jan 25, 2026</span>
+            </div>
+            <h3>GitHub as mission control</h3>
+            <p>Agent HQ + Cloud Agent previews push AI deeper into production.</p>
+          </a>
+
+          <a class="riot-feed__card" href="cursor-cli-agent-modes.html">
+            <div class="riot-feed__meta">
+              <span class="riot-tag">Tools</span>
+              <span class="riot-date">Jan 25, 2026</span>
+            </div>
+            <h3>Cursor CLI agent modes</h3>
+            <p>Plan mode + Cloud Handoff brings agents into terminal-native work.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED (Centered header, Riot-ish tiles) -->
+    <section id="featured" class="riot-section">
+      <div class="wrap">
+        <div class="riot-section__head riot-section__head--center">
           <h2>Featured</h2>
         </div>
 
-        <div class="grid grid--tiles">
-          <article class="tile">
-            <a class="tile__link" href="nightcafe-three-scenes-workflows.html">
-              <div class="tile__img tile__img--d" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>NightCafe “three-scene” workflow</h3>
-                <p>Lightning + Flux + guided composition for consistent multi-scene worlds.</p>
-                <div class="tile__row">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+        <div class="riot-tiles">
+          <article class="riot-tile">
+            <a class="riot-tile__link" href="nightcafe-three-scenes-workflows.html">
+              <div class="riot-tile__top">
+                <span class="riot-tile__tag">NightCafe</span>
+                <span class="riot-tile__date">Jan 25, 2026</span>
               </div>
+              <h3>Three-scene worldbuilding workflow</h3>
+              <p>Turn three images into a cohesive world using speed, control, and consistency.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="nightcafe-sdxl-lightning-flux-updates.html">
-              <div class="tile__img tile__img--c" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>NightCafe: SDXL Lightning + Flux</h3>
-                <p>Speed and pricing updates that make iteration a real workflow.</p>
-                <div class="tile__row">
-                  <span class="tag">AI Art</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="riot-tile">
+            <a class="riot-tile__link" href="nightcafe-sdxl-lightning-flux-updates.html">
+              <div class="riot-tile__top">
+                <span class="riot-tile__tag">AI Art</span>
+                <span class="riot-tile__date">Jan 25, 2026</span>
               </div>
+              <h3>SDXL Lightning + Flux updates</h3>
+              <p>The “boring” improvements that make tools usable every day.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="github-agent-hq-cloud-agent.html">
-              <div class="tile__img tile__img--b" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>GitHub “mission control”</h3>
-                <p>Agent HQ + Cloud Agent previews push AI deeper into workflows.</p>
-                <div class="tile__row">
-                  <span class="tag">Platforms</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="riot-tile">
+            <a class="riot-tile__link" href="github-agent-hq-cloud-agent.html">
+              <div class="riot-tile__top">
+                <span class="riot-tile__tag">Platforms</span>
+                <span class="riot-tile__date">Jan 25, 2026</span>
               </div>
+              <h3>GitHub: Agent HQ + Cloud Agent</h3>
+              <p>Multiple agents, one hub. Convenient. Also mildly terrifying.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="cursor-cli-agent-modes.html">
-              <div class="tile__img tile__img--a" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>Cursor CLI Agent Modes</h3>
-                <p>Plan mode + Cloud Handoff brings agent workflows to terminals.</p>
-                <div class="tile__row">
-                  <span class="tag">Dev Tools</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="riot-tile">
+            <a class="riot-tile__link" href="claude-code-holiday-spike.html">
+              <div class="riot-tile__top">
+                <span class="riot-tile__tag">Agents</span>
+                <span class="riot-tile__date">Jan 25, 2026</span>
               </div>
+              <h3>Claude Code adoption spike</h3>
+              <p>The bottleneck shifts from “can you build” to “can you specify and judge.”</p>
             </a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Latest List -->
-    <section id="latest" class="section section--dark">
+    <!-- NEWS (Latest list, Riot-style simple list) -->
+    <section id="latest" class="riot-section riot-section--alt">
       <div class="wrap">
-        <div class="section__head">
-          <h2>Latest</h2>
+        <div class="riot-section__head">
+          <h2>News</h2>
+          <span class="riot-muted">Newest first</span>
         </div>
 
-        <ul class="post-list">
+        <ul class="riot-news">
           <li>
             <a href="nightcafe-three-scenes-workflows.html">NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</a>
-            <span class="date">January 25, 2026</span>
+            <span>Jan 25, 2026</span>
           </li>
           <li>
             <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
-            <span class="date">January 25, 2026</span>
+            <span>Jan 25, 2026</span>
           </li>
           <li>
             <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
-            <span class="date">January 25, 2026</span>
+            <span>Jan 25, 2026</span>
           </li>
           <li>
             <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
-            <span class="date">January 25, 2026</span>
+            <span>Jan 25, 2026</span>
           </li>
           <li>
             <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
-            <span class="date">January 25, 2026</span>
+            <span>Jan 25, 2026</span>
           </li>
         </ul>
       </div>
@@ -200,17 +235,17 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer__inner">
+  <footer class="riot-footer">
+    <div class="wrap riot-footer__inner">
       <div>
         <strong>Applied AI Newsletter</strong>
-        <div class="muted">CAH 205 · GitHub Pages</div>
+        <div class="riot-muted">CAH 205 · GitHub Pages</div>
       </div>
-      <div class="muted">© 2026 Batman117</div>
+      <div class="riot-muted">© 2026 Batman117</div>
     </div>
   </footer>
 
-  <!-- Minimal JS for menu + modal -->
+  <!-- Minimal JS for menu + modal (unchanged) -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
