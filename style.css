@@ -124,3 +124,125 @@ footer{
   border-top: 1px solid var(--border);
   color: var(--muted);
 }
+/* =========================
+   RIOT-INSPIRED THEME LAYER
+   ========================= */
+
+:root{
+  --riot-bg: #0a0a0a;
+  --riot-bg2: #0f1115;
+  --riot-panel: rgba(255,255,255,.06);
+  --riot-panel2: rgba(255,255,255,.04);
+  --riot-border: rgba(255,255,255,.12);
+  --riot-text: #f4f5f7;
+  --riot-muted: rgba(244,245,247,.72);
+  --riot-red: #e62429;
+  --riot-red2: #ff3b3f;
+  --riot-radius: 18px;
+  --riot-max: 1200px;
+}
+
+body.riot{
+  background: radial-gradient(1200px 900px at 20% -10%, rgba(230,36,41,.22), transparent 55%),
+              radial-gradient(900px 700px at 100% 10%, rgba(255,59,63,.14), transparent 55%),
+              var(--riot-bg);
+  color: var(--riot-text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.wrap{
+  max-width: var(--riot-max);
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* Topbar */
+.riot-topbar{
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(10,10,10,.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--riot-border);
+}
+
+.riot-topbar__inner{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 64px;
+}
+
+.riot-brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--riot-text);
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
+.riot-brand__mark{
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--riot-red), var(--riot-red2));
+  color: #0a0a0a;
+  font-weight: 1000;
+}
+
+.riot-nav{
+  display: flex;
+  gap: 14px;
+  margin-left: 10px;
+  flex: 1;
+}
+
+.riot-nav a{
+  text-decoration: none;
+  color: var(--riot-muted);
+  font-weight: 800;
+  letter-spacing: .2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 999px;
+}
+
+.riot-nav a:hover{
+  color: var(--riot-text);
+  background: rgba(255,255,255,.06);
+}
+
+.riot-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.riot-pill{
+  text-decoration: none;
+  color: var(--riot-text);
+  border: 1px solid rgba(230,36,41,.45);
+  background: rgba(230,36,41,.10);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.riot-pill:hover{
+  border-color: rgba(255,59,63,.7);
+  background: rgba(255,59,63,.14);
+}
+
+/* Hamburger tweak to match */
+.riot-hamburger{
+  border: 1px solid var(--riot-border);
+  background: rgba(255,255,255,.04);
+}
+.riot
