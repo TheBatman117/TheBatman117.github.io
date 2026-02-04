@@ -7,19 +7,19 @@
   <meta name="description" content="Applied AI Newsletter: tools people actually use." />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <!-- Top Nav -->
+<body class="theme-lightning">
+
+  <!-- TOP BAR -->
   <header class="topbar">
     <div class="wrap topbar__inner">
 
-      <!-- Hamburger (LEFT) -->
       <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
       <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__mark" aria-hidden="true">AI</span>
         <span class="brand__name">Applied AI</span>
       </a>
 
@@ -30,12 +30,13 @@
       </nav>
 
       <div class="actions">
-        <a class="btn btn--ghost" href="#subscribe">Subscribe</a>
+        <a class="pill" href="#latest">Browse</a>
       </div>
+
     </div>
   </header>
 
-  <!-- Side Menu -->
+  <!-- SIDE MENU -->
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu__header">
       <strong>Menu</strong>
@@ -69,107 +70,108 @@
 
   <main>
 
-    <!-- Hero (LATEST STORY: Flux 2 Klein 9B Fast) -->
-    <section class="hero" aria-label="Featured story">
+    <!-- HERO -->
+    <section class="hero" aria-label="Latest story">
       <div class="wrap hero__grid">
+
         <div class="hero__copy">
           <p class="kicker">LATEST STORY</p>
-          <h1 class="hero__title">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</h1>
+
+          <!-- Click headline = lightning flash -->
+          <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning flash">
+            NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
+          </button>
+
           <p class="hero__desc">
-            NightCafe’s newest speed-first option is built for fast iteration: rapid prompt variations,
-            quick style locking, and edit-style workflows where you refine a concept without waiting forever.
+            Speed-first generation aimed at fast iteration, rapid variations, and edit-style workflows where you refine without waiting forever.
           </p>
+
           <div class="hero__cta">
             <a class="btn btn--primary" href="nightcafe-flux2-klein-9b-fast.html">Read story</a>
             <a class="btn btn--ghost" href="#latest">Browse latest</a>
           </div>
+
           <div class="hero__meta" role="list">
-            <span class="pill" role="listitem">NightCafe</span>
-            <span class="pill" role="listitem">Flux 2 Klein</span>
-            <span class="pill" role="listitem">Fast workflow</span>
+            <span class="chip" role="listitem">NightCafe</span>
+            <span class="chip" role="listitem">Flux 2 Klein</span>
+            <span class="chip" role="listitem">Fast</span>
           </div>
         </div>
 
-        <div class="hero__media" aria-label="Hero panel">
-          <div class="hero__panel" aria-hidden="true"></div>
+        <div class="hero__media" aria-hidden="true">
+          <div class="hero__panel">
+            <div class="bolt" id="boltFx" aria-hidden="true"></div>
+            <div class="flash" id="screenFlash" aria-hidden="true"></div>
+            <div class="scanlines" aria-hidden="true"></div>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Featured Grid -->
+    <!-- FEATURED -->
     <section id="featured" class="section">
       <div class="wrap">
 
-        <!-- Centered Featured header -->
         <div class="section__head section__head--center">
           <h2>Featured</h2>
         </div>
 
-        <div class="grid grid--tiles">
-          <article class="tile">
-            <a class="tile__link" href="nightcafe-flux2-klein-9b-fast.html">
-              <div class="tile__img tile__img--d" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>Flux 2 Klein 9B Fast arrives</h3>
-                <p>Speed-first generation and edits for rapid iteration workflows.</p>
-                <div class="tile__row">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Feb 3, 2026</span>
-                </div>
+        <div class="grid">
+          <article class="card">
+            <a class="card__link" href="nightcafe-flux2-klein-9b-fast.html">
+              <div class="card__top">
+                <span class="tag">NightCafe</span>
+                <span class="date">Feb 3, 2026</span>
               </div>
+              <h3>Flux 2 Klein 9B Fast arrives</h3>
+              <p>Speed-first generation and edits for rapid iteration workflows.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="nightcafe-three-scenes-workflows.html">
-              <div class="tile__img tile__img--c" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>NightCafe “three-scene” workflow</h3>
-                <p>Lightning + Flux + guided composition for consistent multi-scene worlds.</p>
-                <div class="tile__row">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="card">
+            <a class="card__link" href="nightcafe-three-scenes-workflows.html">
+              <div class="card__top">
+                <span class="tag">NightCafe</span>
+                <span class="date">Jan 25, 2026</span>
               </div>
+              <h3>NightCafe “three-scene” workflow</h3>
+              <p>Lightning + Flux + guided composition for consistent multi-scene worlds.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="github-agent-hq-cloud-agent.html">
-              <div class="tile__img tile__img--b" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>GitHub “mission control”</h3>
-                <p>Agent HQ + Cloud Agent previews push AI deeper into workflows.</p>
-                <div class="tile__row">
-                  <span class="tag">Platforms</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="card">
+            <a class="card__link" href="nightcafe-sdxl-lightning-flux-updates.html">
+              <div class="card__top">
+                <span class="tag">AI Art</span>
+                <span class="date">Jan 25, 2026</span>
               </div>
+              <h3>SDXL Lightning + Flux updates</h3>
+              <p>Speed and pricing changes that turn “generate” into a workflow.</p>
             </a>
           </article>
 
-          <article class="tile">
-            <a class="tile__link" href="cursor-cli-agent-modes.html">
-              <div class="tile__img tile__img--a" aria-hidden="true"></div>
-              <div class="tile__body">
-                <h3>Cursor CLI Agent Modes</h3>
-                <p>Plan mode + Cloud Handoff brings agent workflows to terminals.</p>
-                <div class="tile__row">
-                  <span class="tag">Dev Tools</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
+          <article class="card">
+            <a class="card__link" href="github-agent-hq-cloud-agent.html">
+              <div class="card__top">
+                <span class="tag">Platforms</span>
+                <span class="date">Jan 25, 2026</span>
               </div>
+              <h3>GitHub “mission control”</h3>
+              <p>Agent HQ + Cloud Agent previews push AI deeper into production.</p>
             </a>
           </article>
         </div>
+
       </div>
     </section>
 
-    <!-- Latest List -->
-    <section id="latest" class="section section--dark">
+    <!-- LATEST -->
+    <section id="latest" class="section section--alt">
       <div class="wrap">
         <div class="section__head">
           <h2>Latest</h2>
+          <span class="muted">Newest first</span>
         </div>
 
         <ul class="post-list">
@@ -197,10 +199,6 @@
             <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
             <span class="date">January 25, 2026</span>
           </li>
-          <li>
-            <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
-            <span class="date">January 25, 2026</span>
-          </li>
         </ul>
       </div>
     </section>
@@ -217,8 +215,8 @@
     </div>
   </footer>
 
-  <!-- Minimal JS for menu + modal -->
   <script>
+    // Menu + modal (kept simple)
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -259,6 +257,7 @@
 
     menuBtn.addEventListener('click', openMenu);
     closeMenuBtn.addEventListener('click', closeMenu);
+
     backdrop.addEventListener('click', () => {
       if (!faqModal.hidden) closeFAQ();
       if (sideMenu.classList.contains('side-menu--open')) closeMenu();
@@ -278,6 +277,32 @@
         if (sideMenu.classList.contains('side-menu--open')) closeMenu();
       }
     });
+
+    // LIGHTNING FLASH FX (headline click)
+    const headlineBtn = document.getElementById('headlineBtn');
+    const boltFx = document.getElementById('boltFx');
+    const screenFlash = document.getElementById('screenFlash');
+
+    function zap() {
+      // Restart CSS animation by toggling classes
+      boltFx.classList.remove('bolt--zap');
+      screenFlash.classList.remove('flash--on');
+
+      // Force reflow
+      void boltFx.offsetWidth;
+
+      boltFx.classList.add('bolt--zap');
+      screenFlash.classList.add('flash--on');
+
+      // Optional tiny thunder shake
+      document.body.classList.remove('shake');
+      void document.body.offsetWidth;
+      document.body.classList.add('shake');
+
+      setTimeout(() => document.body.classList.remove('shake'), 220);
+    }
+
+    headlineBtn.addEventListener('click', zap);
   </script>
 </body>
 </html>
