@@ -3,97 +3,136 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NightCafe adds Flux 2 Klein 9B Fast for near-real-time generation</title>
-  <meta name="description" content="NightCafe adds Flux 2 Klein 9B Fast: a speed-focused model that supports fast generation and editing workflows." />
+  <title>NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</title>
+  <meta name="description" content="NightCafe adds a speed-first Flux 2 Klein 9B Fast option for rapid iteration and edit-style workflows." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- Simple top nav (works with your Riot-ish CSS) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">Applied AI</span>
+      </a>
 
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="brand" href="index.html" aria-label="Home">
-      <span class="brand__mark" aria-hidden="true"></span>
-      <span class="brand__name">Applied AI</span>
-    </a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="index.html#featured">Featured</a>
+        <a href="index.html#latest">Latest</a>
+        <a href="about.html">About</a>
+      </nav>
 
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html#featured">Featured</a>
-      <a href="index.html#latest">Latest</a>
-      <a href="about.html">About</a>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap" style="padding: 28px 18px 60px;">
-  <article>
-    <p class="kicker">LATEST STORY</p>
-
-    <h1>NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</h1>
-    <p class="muted">February 3, 2026</p>
-
-    <p>
-      NightCafe has added a new speed-first option: <strong>Flux 2 Klein 9B Fast</strong>.
-      If you’re the kind of person who gets angry waiting for generations (so… anyone with a pulse),
-      this model is built around one core idea: <em>make iteration fast enough that “trying again” is a normal part of the workflow</em>,
-      not a punishment.
-    </p>
-
-    <h2>What’s new</h2>
-    <p>
-      “Klein” is Black Forest Labs’ compact Flux 2 family designed for low-latency use cases.
-      The official release frames Flux 2 Klein as unifying <strong>image generation and image editing</strong> in one model,
-      with “under-a-second” style latency on modern hardware for certain variants. :contentReference[oaicite:1]{index=1}
-    </p>
-
-    <p>
-      NightCafe’s “Fast” label matters because it’s basically a promise: this is meant for
-      rapid prompt iteration, quick variations, and edit-style workflows where you keep a concept but change specifics.
-      In other words: fewer “one perfect prompt” fantasies, more “small changes until it’s right.”
-    </p>
-
-    <h2>Why it matters for real creators</h2>
-    <p>
-      Most people don’t need a model that’s 2% better if it’s 3× slower. What they need is speed that changes behavior:
-      you generate more variants, compare them, and lock in consistent styles instead of gambling once and calling it “art direction.”
-      Faster cycles are also a big deal for anything multi-scene: character consistency, themed sets, storyboards, thumbnails,
-      and “I need three versions before I pick one” work.
-    </p>
-
-    <h2>How I’d use it in NightCafe</h2>
-    <ul>
-      <li><strong>Thumbnail/cover exploration:</strong> generate 8–20 quick versions, then switch to a higher-fidelity model only after the composition is nailed.</li>
-      <li><strong>Style locking:</strong> keep the same prompt skeleton and iterate on small changes (lighting, palette, camera angle) until the “look” is repeatable.</li>
-      <li><strong>Edit workflows:</strong> start from a strong image, then do targeted changes (mood, props, environment cues) instead of regenerating from scratch.</li>
-    </ul>
-
-    <h2>My take</h2>
-    <p>
-      This is the kind of update that sounds boring until you use it for an hour. Speed is the difference between
-      “cool demo” and “tool you’ll actually open again tomorrow.” If Flux 2 Klein 9B Fast holds up in quality while staying quick,
-      it pushes NightCafe further into being a real creative workspace, not just a roulette wheel with pretty pictures.
-    </p>
-
-    <hr />
-
-    <h2>Sources you can verify</h2>
-    <ul>
-      <li>Black Forest Labs announcement: FLUX.2 [klein] overview and goals :contentReference[oaicite:2]{index=2}</li>
-      <li>Hugging Face model card: FLUX.2-klein-9B :contentReference[oaicite:3]{index=3}</li>
-      <li>Examples of posts listing “Created in NightCafe with Flux 2 Klein 9B Fast” (public proof the model name is in use) :contentReference[oaicite:4]{index=4}</li>
-    </ul>
-
-  </article>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <div>
-      <strong>Applied AI Newsletter</strong>
-      <div class="muted">CAH 205 · GitHub Pages</div>
+      <div class="header-actions">
+        <a class="cta" href="index.html#latest">Browse</a>
+      </div>
     </div>
-    <div class="muted">© 2026 Batman117</div>
-  </div>
-</footer>
+  </header>
 
+  <main>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">LATEST STORY</p>
+          <h1>NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</h1>
+          <p class="muted">February 3, 2026</p>
+        </div>
+      </div>
+
+      <p>
+        NightCafe has added a new speed-first option: <strong>Flux 2 Klein 9B Fast</strong>. If you’re the kind of person who gets
+        angry waiting for generations (so… anyone with a pulse), this model is built around one core idea:
+        <em>make iteration fast enough that “trying again” is a normal part of the workflow</em>, not a punishment.
+      </p>
+
+      <h2>What’s new</h2>
+      <p>
+        “Klein” is <strong>Black Forest Labs’</strong> compact Flux 2 family designed for low-latency use cases. The official framing
+        positions Flux 2 Klein as unifying <strong>image generation</strong> and <strong>image editing</strong> in one model, with
+        near-instant style/iteration behavior on supported hardware for certain variants.
+      </p>
+      <p>
+        NightCafe’s “Fast” label matters because it’s basically a promise: this is meant for rapid prompt iteration, quick variations,
+        and edit-style workflows where you keep a concept but change specifics. In other words: fewer “one perfect prompt” fantasies,
+        more “small changes until it’s right.”
+      </p>
+
+      <h2>Why it matters for real creators</h2>
+      <p>
+        Most people don’t need a model that’s 2% better if it’s 3× slower. What they need is speed that changes behavior: you generate
+        more variants, compare them, and lock in consistent styles instead of gambling once and calling it “art direction.”
+      </p>
+      <p>
+        Faster cycles are also a big deal for anything multi-scene: character consistency, themed sets, storyboards, thumbnails, and
+        “I need three versions before I pick one” work.
+      </p>
+
+      <h2>How I’d use it in NightCafe</h2>
+      <ul>
+        <li><strong>Thumbnail/cover exploration:</strong> generate 8–20 quick versions, then switch to a higher-fidelity model only after the composition is nailed.</li>
+        <li><strong>Style locking:</strong> keep the same prompt skeleton and iterate on small changes (lighting, palette, camera angle) until the “look” is repeatable.</li>
+        <li><strong>Edit workflows:</strong> start from a strong image, then do targeted changes (mood, props, environment cues) instead of regenerating from scratch.</li>
+      </ul>
+
+      <h2>My take</h2>
+      <p>
+        This is the kind of update that sounds boring until you use it for an hour. Speed is the difference between “cool demo” and
+        “tool you’ll actually open again tomorrow.” If Flux 2 Klein 9B Fast holds up in quality while staying quick, it pushes NightCafe
+        further into being a real creative workspace, not just a roulette wheel with pretty pictures.
+      </p>
+
+      <hr />
+
+      <section class="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">Sources you can verify</h2>
+        <ul>
+          <li>
+            <a href="https://bfl.ai/models/flux-2-klein"
+               target="_blank" rel="noopener noreferrer">
+              Black Forest Labs model page: FLUX.2 [klein] lineup (variants + positioning)
+            </a>
+          </li>
+          <li>
+            <a href="https://bfl.ai/blog"
+               target="_blank" rel="noopener noreferrer">
+              Black Forest Labs blog (official announcements and release write-ups)
+            </a>
+          </li>
+          <li>
+            <a href="https://huggingface.co/black-forest-labs"
+               target="_blank" rel="noopener noreferrer">
+              Hugging Face: Black Forest Labs organization page (model cards + details)
+            </a>
+          </li>
+          <li>
+            <a href="https://huggingface.co/models?search=flux%202%20klein"
+               target="_blank" rel="noopener noreferrer">
+              Hugging Face search: “Flux 2 Klein” (find the exact model card listing)
+            </a>
+          </li>
+          <li>
+            <a href="https://nightcafe.studio/"
+               target="_blank" rel="noopener noreferrer">
+              NightCafe Studio (confirm available models and UI labeling in the platform)
+            </a>
+          </li>
+        </ul>
+        <p class="muted">
+          Note: If NightCafe’s exact “Fast” label is UI-based and changes over time, the most stable verification is the
+          Black Forest Labs documentation/blog + the relevant Hugging Face model card(s).
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Batman117</div>
+    </div>
+  </footer>
 </body>
 </html>
