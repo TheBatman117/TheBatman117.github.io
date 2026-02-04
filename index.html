@@ -36,7 +36,7 @@
     </div>
   </header>
 
-  <!-- SIDE MENU (NO FAQ) -->
+  <!-- SIDE MENU -->
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu__header">
       <strong>Menu</strong>
@@ -45,12 +45,12 @@
 
     <nav class="side-menu__nav" aria-label="Side menu">
       <a href="about.html">Bio</a>
-      <a href="#latest" id="browseLatestLink">Browse Latest</a>
+      <a href="#latest">Browse Latest</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
 
-  <!-- BACKDROP (only for side menu now) -->
+  <!-- BACKDROP -->
   <div class="backdrop" id="backdrop" hidden></div>
 
   <main>
@@ -62,7 +62,6 @@
         <div class="hero__copy" id="heroCard">
           <p class="kicker">LATEST STORY</p>
 
-          <!-- Click headline = quick flash pulse (NO bolt) -->
           <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning flash">
             NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
           </button>
@@ -198,31 +197,23 @@
   </footer>
 
   <script>
-    // ---------- DOM ----------
+    // Menu
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
     const backdrop = document.getElementById('backdrop');
 
-    const headlineBtn = document.getElementById('headlineBtn');
-    const screenFlash = document.getElementById('screenFlash');
-    const heroCard = document.getElementById('heroCard');
-
-    // ---------- Menu ----------
     function openMenu(){
       sideMenu.classList.add('side-menu--open');
       sideMenu.setAttribute('aria-hidden','false');
       menuBtn.setAttribute('aria-expanded','true');
-
       backdrop.hidden = false;
       backdrop.classList.add('backdrop--show');
     }
-
     function closeMenu(){
       sideMenu.classList.remove('side-menu--open');
       sideMenu.setAttribute('aria-hidden','true');
       menuBtn.setAttribute('aria-expanded','false');
-
       backdrop.hidden = true;
       backdrop.classList.remove('backdrop--show');
     }
@@ -230,30 +221,27 @@
     menuBtn.addEventListener('click', openMenu);
     closeMenuBtn.addEventListener('click', closeMenu);
     backdrop.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
-    });
+    // Headline click flash (homepage only)
+    const headlineBtn = document.getElementById('headlineBtn');
+    const screenFlash = document.getElementById('screenFlash');
+    const heroCard = document.getElementById('heroCard');
 
-    // ---------- Flash pulse (NO bolt) ----------
     function flashPulse(){
-      if (!screenFlash) return;
-
       screenFlash.classList.remove('flash--on');
       void screenFlash.offsetWidth;
       screenFlash.classList.add('flash--on');
 
-      heroCard?.classList.remove('pulse');
-      void heroCard?.offsetWidth;
-      heroCard?.classList.add('pulse');
+      heroCard.classList.remove('pulse');
+      void heroCard.offsetWidth;
+      heroCard.classList.add('pulse');
 
-      // forced cleanup so nothing can ever stay bright
-      window.setTimeout(() => {
+      setTimeout(() => {
         screenFlash.classList.remove('flash--on');
-        heroCard?.classList.remove('pulse');
+        heroCard.classList.remove('pulse');
       }, 720);
     }
-
     headlineBtn.addEventListener('click', flashPulse);
   </script>
 
