@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="theme-lightning">
+<body class="theme-blue">
 
   <!-- TOP BAR -->
   <header class="topbar">
@@ -45,7 +45,7 @@
 
     <nav class="side-menu__nav" aria-label="Side menu">
       <a href="about.html">Bio</a>
-      <a href="#latest">Browse Latest</a>
+      <a href="#latest" id="browseLatestLink">Browse Latest</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
@@ -62,7 +62,7 @@
         <div class="hero__copy" id="heroCard">
           <p class="kicker">LATEST STORY</p>
 
-          <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning flash">
+          <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger flash">
             NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
           </button>
 
@@ -71,6 +71,7 @@
           </p>
 
           <div class="hero__cta">
+            <!-- IMPORTANT: Story pages should use theme-green -->
             <a class="btn btn--primary" href="nightcafe-flux2-klein-9b-fast.html">Read story</a>
             <a class="btn btn--ghost" href="#latest">Browse latest</a>
           </div>
@@ -100,6 +101,7 @@
         </div>
 
         <div class="grid">
+
           <article class="card">
             <a class="card__link" href="nightcafe-flux2-klein-9b-fast.html">
               <div class="card__top">
@@ -143,6 +145,7 @@
               <p>Agent HQ + Cloud Agent previews push AI deeper into production.</p>
             </a>
           </article>
+
         </div>
       </div>
     </section>
@@ -223,7 +226,7 @@
     backdrop.addEventListener('click', closeMenu);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
-    // Headline click flash (homepage only)
+    // Headline click flash
     const headlineBtn = document.getElementById('headlineBtn');
     const screenFlash = document.getElementById('screenFlash');
     const heroCard = document.getElementById('heroCard');
