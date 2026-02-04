@@ -51,7 +51,7 @@
     </nav>
   </aside>
 
-  <!-- BACKDROP (shared by menu + modal) -->
+  <!-- BACKDROP -->
   <div class="backdrop" id="backdrop" hidden></div>
 
   <!-- FAQ MODAL -->
@@ -77,7 +77,6 @@
         <div class="hero__copy">
           <p class="kicker">LATEST STORY</p>
 
-          <!-- Click headline = lightning flash -->
           <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning flash">
             NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
           </button>
@@ -218,6 +217,7 @@
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
+
     const backdrop = document.getElementById('backdrop');
 
     const faqBtn = document.getElementById('faqBtn');
@@ -229,53 +229,71 @@
     const boltFx = document.getElementById('boltFx');
     const screenFlash = document.getElementById('screenFlash');
 
-    // ---------- State helpers ----------
-    function isMenuOpen() {
-      return sideMenu.classList.contains('side-menu--open');
-    }
-    function isFaqOpen() {
-      return !faqModal.hidden;
-    }
-
-    function syncBackdrop() {
-      // Backdrop should be visible if either menu OR faq is open
-      const shouldShow = isMenuOpen() || isFaqOpen();
-      backdrop.hidden = !shouldShow;
-      if (shouldShow) backdrop.classList.add('backdrop--show');
-      else backdrop.classList.remove('backdrop--show');
+    // ---------- Helpers ----------
+    function showBackdrop() {
+      backdrop.hidden = false;
+      backdrop.style.display = "block"; // backup
+      backdrop.classList.add('backdrop--show');
     }
 
-    // ---------- Menu ----------
+    function hideBackdrop() {
+      backdrop.hidden = true;
+      backdrop.style.display = "none"; // backup
+      backdrop.classList.remove('backdrop--show');
+    }
+
     function openMenu() {
       sideMenu.classList.add('side-menu--open');
       sideMenu.setAttribute('aria-hidden', 'false');
       menuBtn.setAttribute('aria-expanded', 'true');
-      syncBackdrop();
+      showBackdrop();
     }
 
     function closeMenu() {
       sideMenu.classList.remove('side-menu--open');
       sideMenu.setAttribute('aria-hidden', 'true');
       menuBtn.setAttribute('aria-expanded', 'false');
-      syncBackdrop();
+      // Only hide backdrop if FAQ isn't open
+      if (faqModal.hidden) hideBackdrop();
     }
 
-    // ---------- FAQ ----------
     function openFAQ() {
       faqModal.hidden = false;
-      syncBackdrop();
+      faqModal.style.display = "grid"; // backup
+      showBackdrop();
     }
 
     function closeFAQ() {
       faqModal.hidden = true;
-      syncBackdrop();
+      faqModal.style.display = "none"; // backup
+      // Only hide backdrop if menu isn't open
+      if (!sideMenu.classList.contains('side-menu--open')) hideBackdrop();
     }
 
-    // ---------- Backdrop click ----------
-    function closeAllOverlays() {
-      if (isFaqOpen()) closeFAQ();
-      if (isMenuOpen()) closeMenu();
+    function closeAll() {
+      closeFAQ();
+      closeMenu();
+      // closeMenu/closeFAQ handle backdrop; this is just extra safety:
+      if (faqModal.hidden && !sideMenu.classList.contains('side-menu--open')) hideBackdrop();
     }
+
+    // ---------- Events ----------
+    menuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+
+    faqBtn.addEventListener('click', () => {
+      closeMenu();   // prevents stacking overlays
+      openFAQ();
+    });
+
+    closeFaqBtn.addEventListener('click', closeFAQ);
+    okFaqBtn.addEventListener('click', closeFAQ);
+
+    backdrop.addEventListener('click', closeAll);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeAll();
+    });
 
     // ---------- Lightning FX ----------
     function zap() {
@@ -283,7 +301,7 @@
 
       boltFx.classList.remove('bolt--zap');
       screenFlash.classList.remove('flash--on');
-      void boltFx.offsetWidth; // restart animation
+      void boltFx.offsetWidth;
 
       boltFx.classList.add('bolt--zap');
       screenFlash.classList.add('flash--on');
@@ -293,26 +311,15 @@
       document.body.classList.add('shake');
       setTimeout(() => document.body.classList.remove('shake'), 220);
     }
-
-    // ---------- Wire up ----------
-    menuBtn.addEventListener('click', openMenu);
-    closeMenuBtn.addEventListener('click', closeMenu);
-
-    faqBtn.addEventListener('click', () => {
-      closeMenu();   // prevents stacking
-      openFAQ();
-    });
-
-    closeFaqBtn.addEventListener('click', closeFAQ);
-    okFaqBtn.addEventListener('click', closeFAQ);
-
-    backdrop.addEventListener('click', closeAllOverlays);
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAllOverlays();
-    });
-
     headlineBtn.addEventListener('click', zap);
+
+    // ---------- Initial safety state ----------
+    // If something got stuck visible due to old CSS, this forces it closed on load.
+    window.addEventListener('load', () => {
+      faqModal.hidden = true;
+      faqModal.style.display = "none";
+      hideBackdrop();
+    });
   </script>
 
 </body>
