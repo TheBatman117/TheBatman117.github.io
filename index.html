@@ -51,7 +51,7 @@
     </nav>
   </aside>
 
-  <!-- BACKDROP (shared by menu + modal) -->
+  <!-- BACKDROP -->
   <div class="backdrop" id="backdrop" hidden></div>
 
   <!-- FAQ MODAL -->
@@ -74,11 +74,11 @@
     <section class="hero" aria-label="Latest story">
       <div class="wrap hero__grid">
 
-        <div class="hero__copy">
+        <div class="hero__copy" id="heroCard">
           <p class="kicker">LATEST STORY</p>
 
-          <!-- CLICK headline = lightning bolt animation -->
-          <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning">
+          <!-- Click headline = quick flash pulse (NO bolt) -->
+          <button class="hero__headline" id="headlineBtn" type="button" aria-label="Trigger lightning flash">
             NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
           </button>
 
@@ -100,10 +100,8 @@
 
         <div class="hero__media" aria-hidden="true">
           <div class="hero__panel">
-            <!-- Lightning FX layers -->
-            <div class="bolt" id="boltFx" aria-hidden="true"></div>
-            <div class="bolt bolt--branch" id="boltFx2" aria-hidden="true"></div>
-            <div class="glowburst" id="glowBurst" aria-hidden="true"></div>
+            <!-- removed the bolt div completely -->
+            <div class="flash" id="screenFlash" aria-hidden="true"></div>
             <div class="scanlines" aria-hidden="true"></div>
           </div>
         </div>
@@ -228,19 +226,17 @@
     const okFaqBtn = document.getElementById('okFaqBtn');
 
     const headlineBtn = document.getElementById('headlineBtn');
-    const boltFx = document.getElementById('boltFx');
-    const boltFx2 = document.getElementById('boltFx2');
-    const glowBurst = document.getElementById('glowBurst');
+    const screenFlash = document.getElementById('screenFlash');
+    const heroCard = document.getElementById('heroCard');
 
-    // ---------- State helpers ----------
-    function isMenuOpen(){ return sideMenu.classList.contains('side-menu--open'); }
-    function isFaqOpen(){ return !faqModal.hidden; }
+    // ---------- State ----------
+    const isMenuOpen = () => sideMenu.classList.contains('side-menu--open');
+    const isFaqOpen = () => !faqModal.hidden;
 
     function syncBackdrop(){
-      const shouldShow = isMenuOpen() || isFaqOpen();
-      backdrop.hidden = !shouldShow;
-      if (shouldShow) backdrop.classList.add('backdrop--show');
-      else backdrop.classList.remove('backdrop--show');
+      const show = isMenuOpen() || isFaqOpen();
+      backdrop.hidden = !show;
+      backdrop.classList.toggle('backdrop--show', show);
     }
 
     // ---------- Menu ----------
@@ -250,7 +246,6 @@
       menuBtn.setAttribute('aria-expanded','true');
       syncBackdrop();
     }
-
     function closeMenu(){
       sideMenu.classList.remove('side-menu--open');
       sideMenu.setAttribute('aria-hidden','true');
@@ -259,34 +254,18 @@
     }
 
     // ---------- FAQ ----------
-    function openFAQ(){ faqModal.hidden = false; syncBackdrop(); }
-    function closeFAQ(){ faqModal.hidden = true; syncBackdrop(); }
-
-    function closeAllOverlays(){
-      if (isFaqOpen()) closeFAQ();
-      if (isMenuOpen()) closeMenu();
+    function openFAQ(){
+      faqModal.hidden = false;
+      syncBackdrop();
+    }
+    function closeFAQ(){
+      faqModal.hidden = true;
+      syncBackdrop();
     }
 
-    // ---------- Lightning strike FX ----------
-    function lightningStrike(){
-      // prevent button from staying in weird "active" styling
-      headlineBtn.blur();
-
-      // restart animations cleanly
-      boltFx.classList.remove('bolt--zap');
-      boltFx2.classList.remove('bolt--zap2');
-      glowBurst.classList.remove('glowburst--on');
-
-      void boltFx.offsetWidth; // reflow
-
-      boltFx.classList.add('bolt--zap');
-      boltFx2.classList.add('bolt--zap2');
-      glowBurst.classList.add('glowburst--on');
-
-      document.body.classList.remove('shake');
-      void document.body.offsetWidth;
-      document.body.classList.add('shake');
-      setTimeout(() => document.body.classList.remove('shake'), 220);
+    function closeAll(){
+      if (isFaqOpen()) closeFAQ();
+      if (isMenuOpen()) closeMenu();
     }
 
     // ---------- Wire up ----------
@@ -297,14 +276,31 @@
     closeFaqBtn.addEventListener('click', closeFAQ);
     okFaqBtn.addEventListener('click', closeFAQ);
 
-    backdrop.addEventListener('click', closeAllOverlays);
+    backdrop.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAllOverlays();
-      if (e.key === 'Enter' && document.activeElement === headlineBtn) lightningStrike();
-    });
+    // ---------- Flash pulse (NO bolt) ----------
+    function flashPulse(){
+      if (!screenFlash) return;
 
-    headlineBtn.addEventListener('click', lightningStrike);
+      // Start flash animation
+      screenFlash.classList.remove('flash--on');
+      void screenFlash.offsetWidth;
+      screenFlash.classList.add('flash--on');
+
+      // Optional micro-pulse on the hero card only (not the whole page)
+      heroCard?.classList.remove('pulse');
+      void heroCard?.offsetWidth;
+      heroCard?.classList.add('pulse');
+
+      // Force cleanup so nothing can stay bright
+      window.setTimeout(() => {
+        screenFlash.classList.remove('flash--on');
+        heroCard?.classList.remove('pulse');
+      }, 720);
+    }
+
+    headlineBtn.addEventListener('click', flashPulse);
   </script>
 
 </body>
