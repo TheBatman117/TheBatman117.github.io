@@ -14,7 +14,7 @@
   <header class="topbar">
     <div class="wrap topbar__inner">
 
-      <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false">
+      <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-controls="sideMenu" aria-expanded="false" type="button">
         <span></span><span></span><span></span>
       </button>
 
@@ -40,7 +40,7 @@
   <aside class="side-menu" id="sideMenu" aria-hidden="true">
     <div class="side-menu__header">
       <strong>Menu</strong>
-      <button class="side-menu__close" id="closeMenuBtn" aria-label="Close menu">✕</button>
+      <button class="side-menu__close" id="closeMenuBtn" aria-label="Close menu" type="button">✕</button>
     </div>
 
     <nav class="side-menu__nav" aria-label="Side menu">
@@ -51,15 +51,15 @@
     </nav>
   </aside>
 
-  <!-- Backdrop -->
+  <!-- BACKDROP (shared by menu + modal) -->
   <div class="backdrop" id="backdrop" hidden></div>
 
-  <!-- FAQ Modal -->
+  <!-- FAQ MODAL -->
   <div class="modal" id="faqModal" role="dialog" aria-modal="true" aria-labelledby="faqTitle" hidden>
     <div class="modal__panel">
       <div class="modal__header">
         <h2 id="faqTitle">FAQ</h2>
-        <button class="modal__close" id="closeFaqBtn" aria-label="Close FAQ">✕</button>
+        <button class="modal__close" id="closeFaqBtn" aria-label="Close FAQ" type="button">✕</button>
       </div>
       <p>Content coming soon.</p>
       <div class="modal__actions">
@@ -112,7 +112,6 @@
     <!-- FEATURED -->
     <section id="featured" class="section">
       <div class="wrap">
-
         <div class="section__head section__head--center">
           <h2>Featured</h2>
         </div>
@@ -162,7 +161,6 @@
             </a>
           </article>
         </div>
-
       </div>
     </section>
 
@@ -216,7 +214,7 @@
   </footer>
 
   <script>
-    // Menu + modal (kept simple)
+    // ---------- DOM ----------
     const menuBtn = document.getElementById('menuBtn');
     const sideMenu = document.getElementById('sideMenu');
     const closeMenuBtn = document.getElementById('closeMenuBtn');
@@ -227,82 +225,95 @@
     const closeFaqBtn = document.getElementById('closeFaqBtn');
     const okFaqBtn = document.getElementById('okFaqBtn');
 
+    const headlineBtn = document.getElementById('headlineBtn');
+    const boltFx = document.getElementById('boltFx');
+    const screenFlash = document.getElementById('screenFlash');
+
+    // ---------- State helpers ----------
+    function isMenuOpen() {
+      return sideMenu.classList.contains('side-menu--open');
+    }
+    function isFaqOpen() {
+      return !faqModal.hidden;
+    }
+
+    function syncBackdrop() {
+      // Backdrop should be visible if either menu OR faq is open
+      const shouldShow = isMenuOpen() || isFaqOpen();
+      backdrop.hidden = !shouldShow;
+      if (shouldShow) backdrop.classList.add('backdrop--show');
+      else backdrop.classList.remove('backdrop--show');
+    }
+
+    // ---------- Menu ----------
     function openMenu() {
       sideMenu.classList.add('side-menu--open');
       sideMenu.setAttribute('aria-hidden', 'false');
       menuBtn.setAttribute('aria-expanded', 'true');
-      backdrop.hidden = false;
-      backdrop.classList.add('backdrop--show');
+      syncBackdrop();
     }
 
     function closeMenu() {
       sideMenu.classList.remove('side-menu--open');
       sideMenu.setAttribute('aria-hidden', 'true');
       menuBtn.setAttribute('aria-expanded', 'false');
-      backdrop.classList.remove('backdrop--show');
-      backdrop.hidden = true;
+      syncBackdrop();
     }
 
+    // ---------- FAQ ----------
     function openFAQ() {
       faqModal.hidden = false;
-      backdrop.hidden = false;
-      backdrop.classList.add('backdrop--show');
+      syncBackdrop();
     }
 
     function closeFAQ() {
       faqModal.hidden = true;
-      backdrop.classList.remove('backdrop--show');
-      backdrop.hidden = true;
+      syncBackdrop();
     }
 
+    // ---------- Backdrop click ----------
+    function closeAllOverlays() {
+      if (isFaqOpen()) closeFAQ();
+      if (isMenuOpen()) closeMenu();
+    }
+
+    // ---------- Lightning FX ----------
+    function zap() {
+      if (!boltFx || !screenFlash) return;
+
+      boltFx.classList.remove('bolt--zap');
+      screenFlash.classList.remove('flash--on');
+      void boltFx.offsetWidth; // restart animation
+
+      boltFx.classList.add('bolt--zap');
+      screenFlash.classList.add('flash--on');
+
+      document.body.classList.remove('shake');
+      void document.body.offsetWidth;
+      document.body.classList.add('shake');
+      setTimeout(() => document.body.classList.remove('shake'), 220);
+    }
+
+    // ---------- Wire up ----------
     menuBtn.addEventListener('click', openMenu);
     closeMenuBtn.addEventListener('click', closeMenu);
 
-    backdrop.addEventListener('click', () => {
-      if (!faqModal.hidden) closeFAQ();
-      if (sideMenu.classList.contains('side-menu--open')) closeMenu();
-    });
-
     faqBtn.addEventListener('click', () => {
-      closeMenu();
+      closeMenu();   // prevents stacking
       openFAQ();
     });
 
     closeFaqBtn.addEventListener('click', closeFAQ);
     okFaqBtn.addEventListener('click', closeFAQ);
 
+    backdrop.addEventListener('click', closeAllOverlays);
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        if (!faqModal.hidden) closeFAQ();
-        if (sideMenu.classList.contains('side-menu--open')) closeMenu();
-      }
+      if (e.key === 'Escape') closeAllOverlays();
     });
-
-    // LIGHTNING FLASH FX (headline click)
-    const headlineBtn = document.getElementById('headlineBtn');
-    const boltFx = document.getElementById('boltFx');
-    const screenFlash = document.getElementById('screenFlash');
-
-    function zap() {
-      // Restart CSS animation by toggling classes
-      boltFx.classList.remove('bolt--zap');
-      screenFlash.classList.remove('flash--on');
-
-      // Force reflow
-      void boltFx.offsetWidth;
-
-      boltFx.classList.add('bolt--zap');
-      screenFlash.classList.add('flash--on');
-
-      // Optional tiny thunder shake
-      document.body.classList.remove('shake');
-      void document.body.offsetWidth;
-      document.body.classList.add('shake');
-
-      setTimeout(() => document.body.classList.remove('shake'), 220);
-    }
 
     headlineBtn.addEventListener('click', zap);
   </script>
+
 </body>
 </html>
