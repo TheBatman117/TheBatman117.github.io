@@ -9,7 +9,6 @@
 </head>
 
 <body class="theme-blue">
-  <!-- Riot-ish Top Nav -->
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="index.html" aria-label="Home">
@@ -32,7 +31,6 @@
     </div>
   </header>
 
-  <!-- Drawer -->
   <aside class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-top">
       <strong>Menu</strong>
@@ -46,28 +44,28 @@
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
-  <!-- Hero (Riot-ish: big media panel + headline + actions) -->
   <main>
     <section class="hero">
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="kicker">LATEST STORY</p>
           <h1 class="hero-title">
-            NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
+            NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration
           </h1>
           <p class="hero-sub">
-            A speed-first model option built for rapid iteration: quick variations, edit-style workflows, and less “wait and hope” prompt roulette.
+            A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity,
+            and what it means inside NightCafe.
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="nightcafe-flux2-klein-9b-fast.html">Read story</a>
+            <a class="btn primary" href="nightcafe-veo-latest-update.html">Read story</a>
             <a class="btn ghost" href="#latest">See all posts</a>
           </div>
 
           <div class="hero-meta">
             <span class="pill">NightCafe</span>
-            <span class="pill">Flux 2</span>
-            <span class="pill">Fast iteration</span>
+            <span class="pill">Veo 3.1</span>
+            <span class="pill">AI Video</span>
           </div>
         </div>
 
@@ -84,7 +82,6 @@
       </div>
     </section>
 
-    <!-- Featured (Riot-ish: card rail) -->
     <section id="featured" class="section">
       <div class="section-head">
         <h2>Featured</h2>
@@ -92,6 +89,17 @@
       </div>
 
       <div class="card-grid">
+        <article class="card">
+          <a class="card-link" href="nightcafe-veo-latest-update.html">
+            <div class="card-top">
+              <span class="tag">NightCafe</span>
+              <span class="date">Feb 13, 2026</span>
+            </div>
+            <h3>NightCafe Veo update deep dive</h3>
+            <p>Ingredients to Video + native vertical output + what changes for real workflows.</p>
+          </a>
+        </article>
+
         <article class="card">
           <a class="card-link" href="nightcafe-flux2-klein-9b-fast.html">
             <div class="card-top">
@@ -124,21 +132,9 @@
             <p>Speed and pricing shifts that turn “generate” into a workflow.</p>
           </a>
         </article>
-
-        <article class="card">
-          <a class="card-link" href="github-agent-hq-cloud-agent.html">
-            <div class="card-top">
-              <span class="tag">Platforms</span>
-              <span class="date">Jan 25, 2026</span>
-            </div>
-            <h3>GitHub “mission control”</h3>
-            <p>Agent HQ + Cloud Agent previews push AI deeper into production.</p>
-          </a>
-        </article>
       </div>
     </section>
 
-    <!-- Latest (Riot-ish: list stack) -->
     <section id="latest" class="section alt">
       <div class="section-head">
         <h2>Latest</h2>
@@ -146,6 +142,10 @@
       </div>
 
       <ul class="post-list">
+        <li>
+          <a href="nightcafe-veo-latest-update.html">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</a>
+          <span class="date">February 13, 2026</span>
+        </li>
         <li>
           <a href="nightcafe-flux2-klein-9b-fast.html">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</a>
           <span class="date">February 3, 2026</span>
@@ -180,12 +180,11 @@
         <strong>Applied AI Newsletter</strong>
         <div class="muted">CAH 205 · GitHub Pages</div>
       </div>
-      <div class="muted">© 2026 Batman117</div>
+      <div class="muted">© 2026 Deon</div>
     </div>
   </footer>
 
   <script>
-    // Drawer menu
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const closeBtn = document.getElementById('closeBtn');
