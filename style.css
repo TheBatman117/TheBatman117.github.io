@@ -1,13 +1,23 @@
 /* =========================================================
-   Applied AI (Riot-ish layout)
+   Applied AI (Riot-ish layout, now more "Applied AI lab")
    - Default theme: GREEN lightning (stories)
-   - Homepage: add body.theme-blue (index already does)
+   - Homepage: add body.theme-blue
    ========================================================= */
 
 :root{
   --max: 1180px;
   --radius: 18px;
   --shadow: 0 24px 80px rgba(0,0,0,.55);
+
+  /* Type */
+  --sans: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Surfaces + lines (used to feel more “app/tooling”) */
+  --line: rgba(255,255,255,.12);
+  --line2: rgba(255,255,255,.18);
+  --panel: rgba(255,255,255,.035);
+  --panel2: rgba(255,255,255,.06);
 
   /* Default = GREEN lightning (story pages) */
   --bg0:#020603;
@@ -34,12 +44,13 @@ body.theme-blue{
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+
 body{
   margin:0;
   color:var(--text);
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family: var(--sans);
 
-  /* Lightning background (GREEN by default) */
+  /* Lightning background + a subtle “tooling grid” to feel more Applied AI */
   background:
     radial-gradient(760px 560px at 50% 0%,
       rgba(217,255,218,.80),
@@ -51,11 +62,21 @@ body{
     radial-gradient(900px 680px at 78% 22%,
       rgba(125,255,156,.12),
       transparent 68%),
+    /* subtle grid overlay */
+    repeating-linear-gradient(to right,
+      rgba(255,255,255,.04) 0,
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 64px),
+    repeating-linear-gradient(to bottom,
+      rgba(255,255,255,.03) 0,
+      rgba(255,255,255,.03) 1px,
+      transparent 1px,
+      transparent 64px),
     linear-gradient(180deg, var(--bg2), var(--bg1) 45%, var(--bg0) 100%);
   background-attachment: fixed;
 }
 
-/* Make homepage background BLUE automatically via variables */
 body.theme-blue{
   background:
     radial-gradient(720px 520px at 50% 0%,
@@ -68,6 +89,16 @@ body.theme-blue{
     radial-gradient(900px 680px at 74% 22%,
       rgba(65,230,255,.16),
       transparent 68%),
+    repeating-linear-gradient(to right,
+      rgba(255,255,255,.04) 0,
+      rgba(255,255,255,.04) 1px,
+      transparent 1px,
+      transparent 64px),
+    repeating-linear-gradient(to bottom,
+      rgba(255,255,255,.03) 0,
+      rgba(255,255,255,.03) 1px,
+      transparent 1px,
+      transparent 64px),
     linear-gradient(180deg, var(--bg2), var(--bg1) 45%, var(--bg0) 100%);
   background-attachment: fixed;
 }
@@ -76,6 +107,19 @@ a{ color: var(--accent2); text-decoration:none; }
 a:hover{ color: var(--ice); }
 .muted{ color: var(--muted); }
 
+/* Better defaults for “reading an analysis site” */
+p, li{ line-height: 1.75; }
+h1,h2,h3{ letter-spacing: -0.01em; }
+::selection{ background: rgba(255,255,255,.16); }
+
+/* Accessibility: visible focus ring */
+:focus-visible{
+  outline: 2px solid rgba(255,255,255,.55);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* Header */
 .site-header{
   position: sticky;
   top:0;
@@ -96,7 +140,7 @@ a:hover{ color: var(--ice); }
   gap: 14px;
 }
 
-/* Riot-ish logo */
+/* Logo */
 .logo{
   display:flex;
   align-items:center;
@@ -112,9 +156,13 @@ a:hover{ color: var(--ice); }
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.95), rgba(255,255,255,.20) 60%, transparent 70%);
   box-shadow: 0 0 18px rgba(255,255,255,.18);
 }
-.logo-text{ text-transform: uppercase; font-size: 13px; letter-spacing:.14em; }
+.logo-text{
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing:.14em;
+}
 
-/* Riot-ish nav */
+/* Nav */
 .primary-nav{
   display:flex;
   align-items:center;
@@ -257,6 +305,24 @@ body:not(.theme-blue) .cta:hover{ box-shadow: 0 0 22px rgba(0,255,76,.16); borde
   padding: 24px;
   box-shadow: var(--shadow);
 }
+
+/* “AI lab” feel: subtle inner hairline + micro texture on primary panels */
+.hero-copy, .card, .hero-media, .post-list li{
+  position: relative;
+}
+.hero-copy::before, .card::before, .hero-media::before, .post-list li::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  background:
+    radial-gradient(900px 200px at 20% 0%, rgba(255,255,255,.05), transparent 50%),
+    radial-gradient(900px 200px at 80% 0%, rgba(255,255,255,.03), transparent 55%);
+  opacity: .55;
+}
+
 .kicker{
   margin: 0 0 10px;
   font-weight: 950;
@@ -310,24 +376,34 @@ body.theme-blue .btn.primary{
 body:not(.theme-blue) .btn.primary{
   background: radial-gradient(circle at 30% 20%, rgba(217,255,218,.92), rgba(0,255,76,.55) 45%, rgba(0,120,40,.55) 85%);
 }
-.btn.ghost{
-  background: rgba(255,255,255,.03);
-}
+.btn.ghost{ background: rgba(255,255,255,.03); }
 
 .hero-meta{
   display:flex;
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* Pills read like “tags/metadata” now */
 .pill{
   display:inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 7px 10px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.03);
-  color: rgba(255,255,255,.86);
+  background: rgba(0,0,0,.22);
+  color: rgba(255,255,255,.88);
   font-weight: 900;
   font-size: 12px;
+}
+.pill::before{
+  content:"";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 14px rgba(255,255,255,.12);
 }
 
 /* Media panel */
@@ -452,6 +528,7 @@ body:not(.theme-blue) .media-glow{
   gap: 10px;
   margin-bottom: 10px;
 }
+
 .tag{
   font-weight: 950;
   font-size: 11px;
@@ -464,6 +541,7 @@ body:not(.theme-blue) .media-glow{
   font-size: 12px;
   color: rgba(255,255,255,.55);
 }
+
 .card h3{
   margin:0 0 8px;
   font-size: 18px;
@@ -510,13 +588,139 @@ body:not(.theme-blue) .media-glow{
 }
 
 /* =========================================================
-   Featured revolving tabs (MERGED IN)
+   Applied AI content helpers (for your article pages)
+   - Gives you “analysis site” vibes: code, quotes, callouts
    ========================================================= */
 
-.featured-tabs{
-  margin-top: 12px;
+main{
+  /* slightly more readable spacing on long pages */
+  padding-bottom: 14px;
 }
 
+/* If your article pages use .article or .post container, these help automatically */
+.article, .post, .content{
+  max-width: 86ch;
+  margin: 0 auto;
+  padding: 0 18px 44px;
+}
+
+/* Links in longform should look like references */
+.article a, .post a, .content a{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  color: var(--accent2);
+}
+.article a:hover, .post a:hover, .content a:hover{
+  color: var(--ice);
+}
+
+/* Inline code */
+code{
+  font-family: var(--mono);
+  font-size: .95em;
+  padding: .15em .4em;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.92);
+}
+
+/* Code blocks */
+pre{
+  margin: 16px 0;
+  padding: 14px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line2);
+  background:
+    radial-gradient(1000px 250px at 10% 0%, rgba(255,255,255,.06), transparent 55%),
+    rgba(0,0,0,.48);
+  overflow:auto;
+  box-shadow: 0 18px 60px rgba(0,0,0,.45);
+}
+pre code{
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: rgba(255,255,255,.92);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Blockquotes become “field notes” */
+blockquote{
+  margin: 18px 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.86);
+}
+blockquote p{ margin: 0; }
+
+/* Callout box utility: add class="callout" in your HTML when needed */
+.callout{
+  margin: 18px 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background:
+    radial-gradient(800px 220px at 15% 0%, rgba(255,255,255,.06), transparent 55%),
+    rgba(0,0,0,.28);
+}
+.callout .callout-title{
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .9;
+  margin-bottom: 8px;
+}
+
+/* Tables (good for comparisons: tools, pricing, features) */
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(0,0,0,.22);
+}
+th, td{
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  text-align: left;
+  vertical-align: top;
+}
+th{
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.84);
+  background: rgba(255,255,255,.04);
+}
+tr:hover td{
+  background: rgba(255,255,255,.03);
+}
+
+/* =========================================================
+   Featured rotator fade (for your JS auto-rotation)
+   ========================================================= */
+
+.featured-rotator{
+  transition: opacity 220ms ease;
+  opacity: 1;
+}
+.featured-rotator.is-fading{
+  opacity: 0;
+}
+
+/* =========================================================
+   Extra featured-tabs CSS (left intact even if unused)
+   ========================================================= */
+
+.featured-tabs{ margin-top: 12px; }
 .featured-tabs__top{
   display:flex;
   align-items:center;
@@ -524,14 +728,12 @@ body:not(.theme-blue) .media-glow{
   gap:12px;
   margin-bottom:12px;
 }
-
 .featured-tabs__controls{
   display:flex;
   align-items:center;
   gap:10px;
   flex:1;
 }
-
 .featured-btn{
   width: 44px;
   height: 44px;
@@ -543,16 +745,8 @@ body:not(.theme-blue) .media-glow{
   line-height: 1;
   font-size: 22px;
 }
-.featured-btn:hover{
-  background: rgba(255,255,255,.06);
-}
-
-.tablist{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
+.featured-btn:hover{ background: rgba(255,255,255,.06); }
+.tablist{ display:flex; gap:8px; flex-wrap:wrap; }
 .tab{
   border: 1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
@@ -565,19 +759,13 @@ body:not(.theme-blue) .media-glow{
   text-transform: uppercase;
   cursor: pointer;
 }
-.tab:hover{
-  background: rgba(255,255,255,.06);
-}
+.tab:hover{ background: rgba(255,255,255,.06); }
 .tab.is-active{
   color: var(--ice);
   border-color: rgba(255,255,255,.22);
   background: rgba(255,255,255,.06);
 }
-
-.panels{
-  border-radius: var(--radius);
-}
-
+.panels{ border-radius: var(--radius); }
 .panel-card{
   display:block;
   padding: 18px;
@@ -586,11 +774,7 @@ body:not(.theme-blue) .media-glow{
   background: rgba(255,255,255,.035);
   box-shadow: var(--shadow);
 }
-
-.panel-card:hover{
-  background: rgba(255,255,255,.06);
-}
-
+.panel-card:hover{ background: rgba(255,255,255,.06); }
 .panel-cta{
   margin-top: 10px;
   font-weight: 900;
@@ -599,8 +783,6 @@ body:not(.theme-blue) .media-glow{
   font-size: 12px;
   color: rgba(255,255,255,.78);
 }
-
-/* Make tab hint not crush mobile layouts */
 .featured-tabs__hint{
   white-space: nowrap;
   font-size: 12px;
