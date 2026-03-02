@@ -82,56 +82,94 @@
       </div>
     </section>
 
+    <!-- FEATURED: REVOLVING TABS -->
     <section id="featured" class="section">
       <div class="section-head">
         <h2>Featured</h2>
         <a class="section-link" href="#latest">View latest</a>
       </div>
 
-      <div class="card-grid">
-        <article class="card">
-          <a class="card-link" href="nightcafe-veo-latest-update.html">
-            <div class="card-top">
-              <span class="tag">NightCafe</span>
-              <span class="date">Feb 13, 2026</span>
-            </div>
-            <h3>NightCafe Veo update deep dive</h3>
-            <p>Ingredients to Video + native vertical output + what changes for real workflows.</p>
-          </a>
-        </article>
+      <div class="featured-tabs" id="featuredTabs" aria-label="Featured stories carousel">
+        <div class="featured-tabs__top">
+          <div class="featured-tabs__controls">
+            <button class="featured-btn" id="featPrev" type="button" aria-label="Previous featured story">‹</button>
 
-        <article class="card">
-          <a class="card-link" href="nightcafe-flux2-klein-9b-fast.html">
-            <div class="card-top">
-              <span class="tag">NightCafe</span>
-              <span class="date">Feb 3, 2026</span>
+            <div class="tablist" role="tablist" aria-label="Featured story tabs">
+              <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-0" id="tab-0" data-index="0" type="button">
+                Veo Deep Dive
+              </button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="panel-1" id="tab-1" data-index="1" type="button">
+                Flux 2 Klein Fast
+              </button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" data-index="2" type="button">
+                Three-Scene Workflow
+              </button>
+              <button class="tab" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" data-index="3" type="button">
+                SDXL Lightning + Flux
+              </button>
             </div>
-            <h3>Flux 2 Klein 9B Fast arrives</h3>
-            <p>Near-real-time generation and edits that change how often you iterate.</p>
-          </a>
-        </article>
 
-        <article class="card">
-          <a class="card-link" href="nightcafe-three-scenes-workflows.html">
-            <div class="card-top">
-              <span class="tag">NightCafe</span>
-              <span class="date">Jan 28, 2026</span>
-            </div>
-            <h3>NightCafe “three-scene” workflow</h3>
-            <p>Lightning + Flux + composition control for consistent worldbuilding.</p>
-          </a>
-        </article>
+            <button class="featured-btn" id="featNext" type="button" aria-label="Next featured story">›</button>
+          </div>
 
-        <article class="card">
-          <a class="card-link" href="nightcafe-sdxl-lightning-flux-updates.html">
-            <div class="card-top">
-              <span class="tag">AI Art</span>
-              <span class="date">Jan 25, 2026</span>
-            </div>
-            <h3>SDXL Lightning + Flux updates</h3>
-            <p>Speed and pricing shifts that turn “generate” into a workflow.</p>
-          </a>
-        </article>
+          <div class="featured-tabs__hint muted">
+            Auto-rotates every 6 seconds (pauses on hover).
+          </div>
+        </div>
+
+        <div class="panels">
+          <!-- Panel 0 -->
+          <article class="panel is-active" role="tabpanel" tabindex="0" id="panel-0" aria-labelledby="tab-0">
+            <a class="card-link panel-card" href="nightcafe-veo-latest-update.html">
+              <div class="card-top">
+                <span class="tag">NightCafe</span>
+                <span class="date">Feb 13, 2026</span>
+              </div>
+              <h3>NightCafe Veo update deep dive</h3>
+              <p>Ingredients to Video + native vertical output + what changes for real workflows.</p>
+              <div class="panel-cta">Read story →</div>
+            </a>
+          </article>
+
+          <!-- Panel 1 -->
+          <article class="panel" role="tabpanel" tabindex="0" id="panel-1" aria-labelledby="tab-1" hidden>
+            <a class="card-link panel-card" href="nightcafe-flux2-klein-9b-fast.html">
+              <div class="card-top">
+                <span class="tag">NightCafe</span>
+                <span class="date">Feb 3, 2026</span>
+              </div>
+              <h3>Flux 2 Klein 9B Fast arrives</h3>
+              <p>Near-real-time generation and edits that change how often you iterate.</p>
+              <div class="panel-cta">Read story →</div>
+            </a>
+          </article>
+
+          <!-- Panel 2 -->
+          <article class="panel" role="tabpanel" tabindex="0" id="panel-2" aria-labelledby="tab-2" hidden>
+            <a class="card-link panel-card" href="nightcafe-three-scenes-workflows.html">
+              <div class="card-top">
+                <span class="tag">NightCafe</span>
+                <span class="date">Jan 28, 2026</span>
+              </div>
+              <h3>NightCafe “three-scene” workflow</h3>
+              <p>Lightning + Flux + composition control for consistent worldbuilding.</p>
+              <div class="panel-cta">Read story →</div>
+            </a>
+          </article>
+
+          <!-- Panel 3 -->
+          <article class="panel" role="tabpanel" tabindex="0" id="panel-3" aria-labelledby="tab-3" hidden>
+            <a class="card-link panel-card" href="nightcafe-sdxl-lightning-flux-updates.html">
+              <div class="card-top">
+                <span class="tag">AI Art</span>
+                <span class="date">Jan 25, 2026</span>
+              </div>
+              <h3>SDXL Lightning + Flux updates</h3>
+              <p>Speed and pricing shifts that turn “generate” into a workflow.</p>
+              <div class="panel-cta">Read story →</div>
+            </a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -185,6 +223,7 @@
   </footer>
 
   <script>
+    // Drawer menu
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const closeBtn = document.getElementById('closeBtn');
@@ -209,6 +248,75 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Featured tabs: rotate + controls
+    const tabContainer = document.getElementById('featuredTabs');
+    const tabs = Array.from(tabContainer.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(tabContainer.querySelectorAll('[role="tabpanel"]'));
+    const prevBtn = document.getElementById('featPrev');
+    const nextBtn = document.getElementById('featNext');
+
+    let activeIndex = 0;
+    let timer = null;
+    const intervalMs = 6000;
+
+    function setActive(index, focusPanel = false) {
+      activeIndex = (index + tabs.length) % tabs.length;
+
+      tabs.forEach((t, i) => {
+        const isActive = i === activeIndex;
+        t.classList.toggle('is-active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        t.tabIndex = isActive ? 0 : -1;
+      });
+
+      panels.forEach((p, i) => {
+        const isActive = i === activeIndex;
+        p.classList.toggle('is-active', isActive);
+        p.hidden = !isActive;
+        if (isActive && focusPanel) p.focus();
+      });
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = window.setInterval(() => setActive(activeIndex + 1), intervalMs);
+    }
+
+    function stopAuto() {
+      if (timer) window.clearInterval(timer);
+      timer = null;
+    }
+
+    // Click on tabs
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        setActive(Number(tab.dataset.index), true);
+        startAuto();
+      });
+    });
+
+    // Prev/Next
+    prevBtn.addEventListener('click', () => { setActive(activeIndex - 1, true); startAuto(); });
+    nextBtn.addEventListener('click', () => { setActive(activeIndex + 1, true); startAuto(); });
+
+    // Pause on hover/focus (so it doesn't rotate while reading)
+    tabContainer.addEventListener('mouseenter', stopAuto);
+    tabContainer.addEventListener('mouseleave', startAuto);
+    tabContainer.addEventListener('focusin', stopAuto);
+    tabContainer.addEventListener('focusout', startAuto);
+
+    // Keyboard: arrow keys to switch tabs when a tab is focused
+    tabContainer.querySelector('.tablist').addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); setActive(activeIndex - 1); tabs[activeIndex].focus(); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); setActive(activeIndex + 1); tabs[activeIndex].focus(); }
+      if (e.key === 'Home') { e.preventDefault(); setActive(0); tabs[0].focus(); }
+      if (e.key === 'End') { e.preventDefault(); setActive(tabs.length - 1); tabs[tabs.length - 1].focus(); }
+    });
+
+    // Initialize
+    setActive(0);
+    startAuto();
   </script>
 </body>
 </html>
