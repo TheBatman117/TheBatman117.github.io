@@ -44,29 +44,155 @@
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
-  <main>
-    <section id="featured" class="section">
-      <div class="section-head">
-        <h2>Featured</h2>
-        <a class="section-link" href="latest.html">View latest</a>
-      </div>
+  <main class="catalog">
+    <div class="catalog-inner">
+      <!-- LEFT FILTER RAIL -->
+      <aside class="filters" aria-label="Filters">
+        <div class="filters-head">
+          <h1 class="filters-title">Featured</h1>
+          <div class="filters-sub muted">Applied AI tools & workflows</div>
+        </div>
 
-      <div class="featured-rotator" id="featuredRotator">
-        <a class="featured-hero" id="featuredLink" href="nightcafe-veo-latest-update.html">
-          <div class="featured-top">
-            <span class="tag" id="featuredTag">NightCafe</span>
-            <span class="date" id="featuredDate">Feb 13, 2026</span>
+        <div class="filter-block">
+          <div class="filter-label">Topics</div>
+          <div class="chip-row">
+            <button class="chip is-active" type="button" data-filter="all">All</button>
+            <button class="chip" type="button" data-filter="nightcafe">NightCafe</button>
+            <button class="chip" type="button" data-filter="agents">Agents</button>
+            <button class="chip" type="button" data-filter="workflow">Workflows</button>
           </div>
+        </div>
 
-          <h3 class="featured-title" id="featuredTitle">NightCafe Veo update deep dive</h3>
-          <p class="featured-desc" id="featuredDesc">
-            Ingredients to Video + native vertical output + what changes for real workflows.
-          </p>
+        <div class="filter-block">
+          <div class="filter-label">Format</div>
+          <div class="chip-row">
+            <button class="chip" type="button" data-filter="deepdive">Deep dive</button>
+            <button class="chip" type="button" data-filter="update">Update</button>
+            <button class="chip" type="button" data-filter="howto">How-to</button>
+          </div>
+        </div>
 
-          <div class="featured-cta">Read story →</div>
-        </a>
-      </div>
-    </section>
+        <div class="filter-block">
+          <div class="filter-label">Quick Links</div>
+          <div class="filters-links">
+            <a class="filters-link" href="latest.html">View all posts</a>
+            <a class="filters-link" href="index.html">Back to home</a>
+          </div>
+        </div>
+
+        <div class="filters-foot muted">
+          Tip: the filters here are lightweight. They won’t rewrite your life, but they do work.
+        </div>
+      </aside>
+
+      <!-- RIGHT CONTENT -->
+      <section class="catalog-main" aria-label="Featured catalog">
+        <div class="catalog-topbar">
+          <div class="catalog-count muted" id="resultCount">Showing 6 featured stories</div>
+
+          <label class="sort" for="sortSelect">
+            <span class="muted">Sort</span>
+            <select id="sortSelect" aria-label="Sort featured">
+              <option value="new">Newest</option>
+              <option value="old">Oldest</option>
+              <option value="az">A–Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Card 1 -->
+          <article class="product" data-tags="nightcafe deepdive update workflow">
+            <a class="product-link" href="nightcafe-veo-latest-update.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">NightCafe</span>
+                  <span class="date">Feb 13, 2026</span>
+                </div>
+                <h3 class="product-title">NightCafe’s latest Veo update deep dive</h3>
+                <p class="product-desc">Ingredients to Video, native vertical output, faster iteration for real creator workflows.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="product" data-tags="nightcafe update workflow">
+            <a class="product-link" href="nightcafe-flux2-klein-9b-fast.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">NightCafe</span>
+                  <span class="date">Feb 3, 2026</span>
+                </div>
+                <h3 class="product-title">Flux 2 Klein 9B Fast arrives</h3>
+                <p class="product-desc">Near-real-time generation and edits that change how often you iterate.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="product" data-tags="nightcafe howto workflow">
+            <a class="product-link" href="nightcafe-three-scenes-workflows.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">NightCafe</span>
+                  <span class="date">Jan 28, 2026</span>
+                </div>
+                <h3 class="product-title">NightCafe “three-scene” workflow</h3>
+                <p class="product-desc">Lightning + Flux + composition control for consistent worldbuilding.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="product" data-tags="nightcafe update">
+            <a class="product-link" href="nightcafe-sdxl-lightning-flux-updates.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">AI Art</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+                <h3 class="product-title">SDXL Lightning + Flux updates</h3>
+                <p class="product-desc">Speed and pricing shifts that turn “generate” into a workflow.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="product" data-tags="agents update workflow">
+            <a class="product-link" href="github-agent-hq-cloud-agent.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">Agents</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+                <h3 class="product-title">GitHub as mission control for agents</h3>
+                <p class="product-desc">Agent HQ + Cloud Agent previews and why GitHub wants the control plane.</p>
+              </div>
+            </a>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="product" data-tags="agents update workflow">
+            <a class="product-link" href="cursor-cli-agent-modes.html">
+              <div class="product-art" aria-hidden="true"></div>
+              <div class="product-body">
+                <div class="product-meta">
+                  <span class="tag">Agents</span>
+                  <span class="date">Jan 25, 2026</span>
+                </div>
+                <h3 class="product-title">Cursor brings agent workflows to CLI</h3>
+                <p class="product-desc">Plan-first terminal workflows + Cloud Handoff, for terminal-native reality.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer class="footer">
@@ -106,62 +232,64 @@
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-    // Featured rotator: ONLY 3 newest stories (auto-rotate every 5 seconds)
-    const featured = [
-      {
-        href: "nightcafe-veo-latest-update.html",
-        tag: "NightCafe",
-        date: "Feb 13, 2026",
-        title: "NightCafe Veo update deep dive",
-        desc: "Ingredients to Video + native vertical output + what changes for real workflows."
-      },
-      {
-        href: "nightcafe-flux2-klein-9b-fast.html",
-        tag: "NightCafe",
-        date: "Feb 3, 2026",
-        title: "Flux 2 Klein 9B Fast arrives",
-        desc: "Near-real-time generation and edits that change how often you iterate."
-      },
-      {
-        href: "nightcafe-three-scenes-workflows.html",
-        tag: "NightCafe",
-        date: "Jan 28, 2026",
-        title: "NightCafe “three-scene” workflow",
-        desc: "Lightning + Flux + composition control for consistent worldbuilding."
-      }
-    ];
+    // Lightweight filters + sort (layout stays the star)
+    const chips = Array.from(document.querySelectorAll(".chip"));
+    const grid = document.getElementById("catalogGrid");
+    const cards = Array.from(grid.querySelectorAll(".product"));
+    const count = document.getElementById("resultCount");
+    const sortSelect = document.getElementById("sortSelect");
 
-    const rotator = document.getElementById("featuredRotator");
-    const linkEl = document.getElementById("featuredLink");
-    const tagEl = document.getElementById("featuredTag");
-    const dateEl = document.getElementById("featuredDate");
-    const titleEl = document.getElementById("featuredTitle");
-    const descEl = document.getElementById("featuredDesc");
+    let activeFilter = "all";
 
-    let idx = 0;
-    const ROTATE_MS = 5000;
-    const FADE_MS = 220;
-
-    function render(i){
-      const item = featured[i];
-      linkEl.href = item.href;
-      tagEl.textContent = item.tag;
-      dateEl.textContent = item.date;
-      titleEl.textContent = item.title;
-      descEl.textContent = item.desc;
+    function applyFilter(){
+      let visible = 0;
+      cards.forEach(card => {
+        const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+        const show = (activeFilter === "all") || tags.includes(activeFilter);
+        card.style.display = show ? "" : "none";
+        if(show) visible++;
+      });
+      count.textContent = `Showing ${visible} featured ${visible === 1 ? "story" : "stories"}`;
     }
 
-    function next(){
-      rotator.classList.add("is-fading");
-      setTimeout(() => {
-        idx = (idx + 1) % featured.length;
-        render(idx);
-        rotator.classList.remove("is-fading");
-      }, FADE_MS);
+    function applySort(){
+      const visibleCards = cards.slice().filter(c => c.style.display !== "none");
+
+      visibleCards.sort((a,b) => {
+        const aTitle = a.querySelector(".product-title").textContent.trim().toLowerCase();
+        const bTitle = b.querySelector(".product-title").textContent.trim().toLowerCase();
+        const aDate = a.querySelector(".date").textContent.trim();
+        const bDate = b.querySelector(".date").textContent.trim();
+
+        // Dates here are just strings (like "Feb 13, 2026") so we parse safely
+        const da = Date.parse(aDate);
+        const db = Date.parse(bDate);
+
+        const mode = sortSelect.value;
+        if(mode === "az") return aTitle.localeCompare(bTitle);
+        if(mode === "old") return (da || 0) - (db || 0);
+        return (db || 0) - (da || 0); // newest
+      });
+
+      // Re-append in sorted order
+      visibleCards.forEach(c => grid.appendChild(c));
     }
 
-    render(idx);
-    setInterval(next, ROTATE_MS);
+    chips.forEach(btn => {
+      btn.addEventListener("click", () => {
+        chips.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        activeFilter = btn.dataset.filter;
+        applyFilter();
+        applySort();
+      });
+    });
+
+    sortSelect.addEventListener("change", applySort);
+
+    // Init
+    applyFilter();
+    applySort();
   </script>
 </body>
 </html>
