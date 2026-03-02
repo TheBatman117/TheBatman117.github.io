@@ -17,8 +17,8 @@
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
-        <a href="#featured">Featured</a>
-        <a href="#latest">Latest</a>
+        <a href="featured.html">Featured</a>
+        <a href="latest.html">Latest</a>
         <a href="about.html">About</a>
       </nav>
 
@@ -26,7 +26,7 @@
         <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
           <span class="burger" aria-hidden="true"></span>
         </button>
-        <a class="cta" href="#latest">Browse</a>
+        <a class="cta" href="latest.html">Browse</a>
       </div>
     </div>
   </header>
@@ -38,7 +38,7 @@
     </div>
     <nav class="drawer-nav" aria-label="Drawer">
       <a href="about.html">Bio</a>
-      <a href="#latest" id="drawerLatest">Browse Latest</a>
+      <a href="latest.html" id="drawerLatest">Browse Latest</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
@@ -59,7 +59,7 @@
 
           <div class="hero-actions">
             <a class="btn primary" href="nightcafe-veo-latest-update.html">Read story</a>
-            <a class="btn ghost" href="#latest">See all posts</a>
+            <a class="btn ghost" href="latest.html">See all posts</a>
           </div>
 
           <div class="hero-meta">
@@ -80,69 +80,6 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- FEATURED: clean rotating single card (NO arrows/tabs/auto text) -->
-    <section id="featured" class="section">
-      <div class="section-head">
-        <h2>Featured</h2>
-        <a class="section-link" href="#latest">View latest</a>
-      </div>
-
-      <div class="featured-rotator" id="featuredRotator">
-        <a class="featured-hero" id="featuredLink" href="nightcafe-veo-latest-update.html">
-          <div class="featured-top">
-            <span class="tag" id="featuredTag">NightCafe</span>
-            <span class="date" id="featuredDate">Feb 13, 2026</span>
-          </div>
-
-          <h3 class="featured-title" id="featuredTitle">NightCafe Veo update deep dive</h3>
-          <p class="featured-desc" id="featuredDesc">
-            Ingredients to Video + native vertical output + what changes for real workflows.
-          </p>
-
-          <div class="featured-cta">Read story →</div>
-        </a>
-      </div>
-    </section>
-
-    <!-- LATEST: keep ALL stories from your old code -->
-    <section id="latest" class="section alt">
-      <div class="section-head">
-        <h2>Latest</h2>
-        <span class="muted">Newest first</span>
-      </div>
-
-      <ul class="post-list">
-        <li>
-          <a href="nightcafe-veo-latest-update.html">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</a>
-          <span class="date">February 13, 2026</span>
-        </li>
-        <li>
-          <a href="nightcafe-flux2-klein-9b-fast.html">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</a>
-          <span class="date">February 3, 2026</span>
-        </li>
-        <li>
-          <a href="nightcafe-three-scenes-workflows.html">NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</a>
-          <span class="date">January 28, 2026</span>
-        </li>
-        <li>
-          <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
-          <span class="date">January 25, 2026</span>
-        </li>
-        <li>
-          <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
-          <span class="date">January 25, 2026</span>
-        </li>
-        <li>
-          <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
-          <span class="date">January 25, 2026</span>
-        </li>
-        <li>
-          <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
-          <span class="date">January 25, 2026</span>
-        </li>
-      </ul>
     </section>
   </main>
 
@@ -182,65 +119,6 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
-
-    // Featured rotator: ONLY 3 newest stories (auto-rotate every 5 seconds)
-    const featured = [
-      {
-        href: "nightcafe-veo-latest-update.html",
-        tag: "NightCafe",
-        date: "Feb 13, 2026",
-        title: "NightCafe Veo update deep dive",
-        desc: "Ingredients to Video + native vertical output + what changes for real workflows."
-      },
-      {
-        href: "nightcafe-flux2-klein-9b-fast.html",
-        tag: "NightCafe",
-        date: "Feb 3, 2026",
-        title: "Flux 2 Klein 9B Fast arrives",
-        desc: "Near-real-time generation and edits that change how often you iterate."
-      },
-      {
-        href: "nightcafe-three-scenes-workflows.html",
-        tag: "NightCafe",
-        date: "Jan 28, 2026",
-        title: "NightCafe “three-scene” workflow",
-        desc: "Lightning + Flux + composition control for consistent worldbuilding."
-      }
-    ];
-
-    const rotator = document.getElementById("featuredRotator");
-    const linkEl = document.getElementById("featuredLink");
-    const tagEl = document.getElementById("featuredTag");
-    const dateEl = document.getElementById("featuredDate");
-    const titleEl = document.getElementById("featuredTitle");
-    const descEl = document.getElementById("featuredDesc");
-
-    let idx = 0;
-    const ROTATE_MS = 5000; // ✅ every 5 seconds
-    const FADE_MS = 220;
-
-    function render(i){
-      const item = featured[i];
-      linkEl.href = item.href;
-      tagEl.textContent = item.tag;
-      dateEl.textContent = item.date;
-      titleEl.textContent = item.title;
-      descEl.textContent = item.desc;
-    }
-
-    function next(){
-      rotator.classList.add("is-fading");
-
-      setTimeout(() => {
-        idx = (idx + 1) % featured.length;
-        render(idx);
-        rotator.classList.remove("is-fading");
-      }, FADE_MS);
-    }
-
-    // ✅ Start rotation immediately
-    render(idx);
-    setInterval(next, ROTATE_MS);
   </script>
 </body>
 </html>
