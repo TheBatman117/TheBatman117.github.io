@@ -508,18 +508,6 @@ body:not(.theme-blue) .media-glow{
   border-top: 1px solid rgba(255,255,255,.10);
   padding-top: 16px;
 }
-/* =========================================================
-   Featured Rotator Fade (Auto-Rotation Only)
-   ========================================================= */
-
-.featured-rotator{
-  transition: opacity 220ms ease;
-  opacity: 1;
-}
-
-.featured-rotator.is-fading{
-  opacity: 0;
-}
 
 /* Responsive */
 @media (max-width: 980px){
