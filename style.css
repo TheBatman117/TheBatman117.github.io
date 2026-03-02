@@ -509,13 +509,114 @@ body:not(.theme-blue) .media-glow{
   padding-top: 16px;
 }
 
+/* =========================================================
+   Featured revolving tabs (MERGED IN)
+   ========================================================= */
+
+.featured-tabs{
+  margin-top: 12px;
+}
+
+.featured-tabs__top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+
+.featured-tabs__controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex:1;
+}
+
+.featured-btn{
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.9);
+  cursor:pointer;
+  line-height: 1;
+  font-size: 22px;
+}
+.featured-btn:hover{
+  background: rgba(255,255,255,.06);
+}
+
+.tablist{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.tab{
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.82);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tab:hover{
+  background: rgba(255,255,255,.06);
+}
+.tab.is-active{
+  color: var(--ice);
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.06);
+}
+
+.panels{
+  border-radius: var(--radius);
+}
+
+.panel-card{
+  display:block;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.035);
+  box-shadow: var(--shadow);
+}
+
+.panel-card:hover{
+  background: rgba(255,255,255,.06);
+}
+
+.panel-cta{
+  margin-top: 10px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255,255,255,.78);
+}
+
+/* Make tab hint not crush mobile layouts */
+.featured-tabs__hint{
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: .85;
+}
+
 /* Responsive */
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns: 1fr; }
   .card-grid{ grid-template-columns: repeat(2, minmax(220px, 1fr)); }
+  .featured-tabs__hint{ display:none; }
 }
 @media (max-width: 560px){
   .primary-nav{ display:none; }
   .card-grid{ grid-template-columns: 1fr; }
   .post-list li{ flex-direction: column; align-items:flex-start; }
+  .featured-btn{ width: 40px; height: 40px; font-size: 20px; }
+  .tab{ padding: 9px 10px; font-size: 11px; }
 }
