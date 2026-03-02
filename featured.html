@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Featured · Applied AI Newsletter</title>
-  <meta name="description" content="Featured stories for the Applied AI Newsletter." />
+  <title>Featured • Applied AI Newsletter</title>
+  <meta name="description" content="Featured Applied AI stories." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="theme-blue">
+<body>
   <header class="site-header">
     <div class="header-inner">
       <a class="logo" href="index.html" aria-label="Home">
@@ -17,7 +17,7 @@
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
-        <a href="featured.html">Featured</a>
+        <a href="featured.html" aria-current="page">Featured</a>
         <a href="latest.html">Latest</a>
         <a href="about.html">About</a>
       </nav>
@@ -44,155 +44,142 @@
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
-  <main class="catalog">
-    <div class="catalog-inner">
-      <!-- LEFT FILTER RAIL -->
-      <aside class="filters" aria-label="Filters">
-        <div class="filters-head">
-          <h1 class="filters-title">Featured</h1>
-          <div class="filters-sub muted">Applied AI tools & workflows</div>
+  <main>
+    <!-- Fanatical-style header/hero -->
+    <section class="store-hero">
+      <div class="store-hero-inner">
+        <div class="store-hero-top">
+          <p class="store-kicker">FEATURED</p>
+          <a class="store-hero-link" href="latest.html">View Latest</a>
         </div>
 
-        <div class="filter-block">
-          <div class="filter-label">Topics</div>
-          <div class="chip-row">
-            <button class="chip is-active" type="button" data-filter="all">All</button>
-            <button class="chip" type="button" data-filter="nightcafe">NightCafe</button>
-            <button class="chip" type="button" data-filter="agents">Agents</button>
-            <button class="chip" type="button" data-filter="workflow">Workflows</button>
-          </div>
-        </div>
+        <h1 class="store-title">Featured Applied AI Stories</h1>
+        <p class="store-sub">
+          Highlighted posts that focus on tools people actually use: NightCafe workflows, speed-first models, and practical iteration.
+        </p>
+      </div>
+    </section>
 
-        <div class="filter-block">
-          <div class="filter-label">Format</div>
-          <div class="chip-row">
-            <button class="chip" type="button" data-filter="deepdive">Deep dive</button>
-            <button class="chip" type="button" data-filter="update">Update</button>
-            <button class="chip" type="button" data-filter="howto">How-to</button>
-          </div>
-        </div>
+    <!-- Fanatical-style grid of cards -->
+    <section class="store-section">
+      <div class="store-grid" aria-label="Featured stories grid">
 
-        <div class="filter-block">
-          <div class="filter-label">Quick Links</div>
-          <div class="filters-links">
-            <a class="filters-link" href="latest.html">View all posts</a>
-            <a class="filters-link" href="index.html">Back to home</a>
-          </div>
-        </div>
+        <article class="store-card">
+          <a class="store-card-link" href="nightcafe-veo-latest-update.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">FEATURED</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
 
-        <div class="filters-foot muted">
-          Tip: the filters here are lightweight. They won’t rewrite your life, but they do work.
-        </div>
-      </aside>
-
-      <!-- RIGHT CONTENT -->
-      <section class="catalog-main" aria-label="Featured catalog">
-        <div class="catalog-topbar">
-          <div class="catalog-count muted" id="resultCount">Showing 6 featured stories</div>
-
-          <label class="sort" for="sortSelect">
-            <span class="muted">Sort</span>
-            <select id="sortSelect" aria-label="Sort featured">
-              <option value="new">Newest</option>
-              <option value="old">Oldest</option>
-              <option value="az">A–Z</option>
-            </select>
-          </label>
-        </div>
-
-        <div class="catalog-grid" id="catalogGrid">
-          <!-- Card 1 -->
-          <article class="product" data-tags="nightcafe deepdive update workflow">
-            <a class="product-link" href="nightcafe-veo-latest-update.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Feb 13, 2026</span>
-                </div>
-                <h3 class="product-title">NightCafe’s latest Veo update deep dive</h3>
-                <p class="product-desc">Ingredients to Video, native vertical output, faster iteration for real creator workflows.</p>
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">NightCafe</span>
+                <span class="store-date">Feb 13, 2026</span>
               </div>
-            </a>
-          </article>
+              <h2 class="store-card-title">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</h2>
+              <p class="store-card-desc">A deep dive into creator control, vertical output, continuity, and why iteration speed matters.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
 
-          <!-- Card 2 -->
-          <article class="product" data-tags="nightcafe update workflow">
-            <a class="product-link" href="nightcafe-flux2-klein-9b-fast.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Feb 3, 2026</span>
-                </div>
-                <h3 class="product-title">Flux 2 Klein 9B Fast arrives</h3>
-                <p class="product-desc">Near-real-time generation and edits that change how often you iterate.</p>
-              </div>
-            </a>
-          </article>
+        <article class="store-card">
+          <a class="store-card-link" href="nightcafe-flux2-klein-9b-fast.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">FAST</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
 
-          <!-- Card 3 -->
-          <article class="product" data-tags="nightcafe howto workflow">
-            <a class="product-link" href="nightcafe-three-scenes-workflows.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">NightCafe</span>
-                  <span class="date">Jan 28, 2026</span>
-                </div>
-                <h3 class="product-title">NightCafe “three-scene” workflow</h3>
-                <p class="product-desc">Lightning + Flux + composition control for consistent worldbuilding.</p>
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">NightCafe</span>
+                <span class="store-date">Feb 3, 2026</span>
               </div>
-            </a>
-          </article>
+              <h2 class="store-card-title">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</h2>
+              <p class="store-card-desc">Speed-first generation that changes behavior: more tests, more variants, fewer “one-shot” prompts.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
 
-          <!-- Card 4 -->
-          <article class="product" data-tags="nightcafe update">
-            <a class="product-link" href="nightcafe-sdxl-lightning-flux-updates.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">AI Art</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
-                <h3 class="product-title">SDXL Lightning + Flux updates</h3>
-                <p class="product-desc">Speed and pricing shifts that turn “generate” into a workflow.</p>
-              </div>
-            </a>
-          </article>
+        <article class="store-card">
+          <a class="store-card-link" href="nightcafe-three-scenes-workflows.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">WORKFLOW</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
 
-          <!-- Card 5 -->
-          <article class="product" data-tags="agents update workflow">
-            <a class="product-link" href="github-agent-hq-cloud-agent.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">Agents</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
-                <h3 class="product-title">GitHub as mission control for agents</h3>
-                <p class="product-desc">Agent HQ + Cloud Agent previews and why GitHub wants the control plane.</p>
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">NightCafe</span>
+                <span class="store-date">Jan 28, 2026</span>
               </div>
-            </a>
-          </article>
+              <h2 class="store-card-title">NightCafe workflow upgrade: cinematic “three-scene” worldbuilding</h2>
+              <p class="store-card-desc">Lightning + Flux + composition control for consistent multi-scene worldbuilding.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
 
-          <!-- Card 6 -->
-          <article class="product" data-tags="agents update workflow">
-            <a class="product-link" href="cursor-cli-agent-modes.html">
-              <div class="product-art" aria-hidden="true"></div>
-              <div class="product-body">
-                <div class="product-meta">
-                  <span class="tag">Agents</span>
-                  <span class="date">Jan 25, 2026</span>
-                </div>
-                <h3 class="product-title">Cursor brings agent workflows to CLI</h3>
-                <p class="product-desc">Plan-first terminal workflows + Cloud Handoff, for terminal-native reality.</p>
+        <article class="store-card">
+          <a class="store-card-link" href="nightcafe-sdxl-lightning-flux-updates.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">UPDATE</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
+
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">AI Art</span>
+                <span class="store-date">Jan 25, 2026</span>
               </div>
-            </a>
-          </article>
-        </div>
-      </section>
-    </div>
+              <h2 class="store-card-title">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</h2>
+              <p class="store-card-desc">Performance + pricing changes that make real iteration affordable and repeatable.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
+
+        <article class="store-card">
+          <a class="store-card-link" href="github-agent-hq-cloud-agent.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">PLATFORMS</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
+
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">Platforms</span>
+                <span class="store-date">Jan 25, 2026</span>
+              </div>
+              <h2 class="store-card-title">GitHub turns into “mission control” for multiple coding agents</h2>
+              <p class="store-card-desc">Agent hubs, code review automation, and why “control planes” are the real agent battleground.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
+
+        <article class="store-card">
+          <a class="store-card-link" href="cursor-cli-agent-modes.html">
+            <div class="store-card-media">
+              <div class="store-card-badge">TOOLS</div>
+              <div class="store-card-placeholder" aria-hidden="true"></div>
+            </div>
+
+            <div class="store-card-body">
+              <div class="store-card-meta">
+                <span class="store-tag">Tools</span>
+                <span class="store-date">Jan 25, 2026</span>
+              </div>
+              <h2 class="store-card-title">Cursor pushes agent workflows into the terminal</h2>
+              <p class="store-card-desc">Plan-first CLI agents + cloud handoff for terminal-native reality.</p>
+              <div class="store-card-cta">Read story →</div>
+            </div>
+          </a>
+        </article>
+
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
@@ -206,7 +193,7 @@
   </footer>
 
   <script>
-    // Drawer menu
+    // Drawer menu (same behavior you already use)
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const closeBtn = document.getElementById('closeBtn');
@@ -231,65 +218,6 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
-
-    // Lightweight filters + sort (layout stays the star)
-    const chips = Array.from(document.querySelectorAll(".chip"));
-    const grid = document.getElementById("catalogGrid");
-    const cards = Array.from(grid.querySelectorAll(".product"));
-    const count = document.getElementById("resultCount");
-    const sortSelect = document.getElementById("sortSelect");
-
-    let activeFilter = "all";
-
-    function applyFilter(){
-      let visible = 0;
-      cards.forEach(card => {
-        const tags = (card.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-        const show = (activeFilter === "all") || tags.includes(activeFilter);
-        card.style.display = show ? "" : "none";
-        if(show) visible++;
-      });
-      count.textContent = `Showing ${visible} featured ${visible === 1 ? "story" : "stories"}`;
-    }
-
-    function applySort(){
-      const visibleCards = cards.slice().filter(c => c.style.display !== "none");
-
-      visibleCards.sort((a,b) => {
-        const aTitle = a.querySelector(".product-title").textContent.trim().toLowerCase();
-        const bTitle = b.querySelector(".product-title").textContent.trim().toLowerCase();
-        const aDate = a.querySelector(".date").textContent.trim();
-        const bDate = b.querySelector(".date").textContent.trim();
-
-        // Dates here are just strings (like "Feb 13, 2026") so we parse safely
-        const da = Date.parse(aDate);
-        const db = Date.parse(bDate);
-
-        const mode = sortSelect.value;
-        if(mode === "az") return aTitle.localeCompare(bTitle);
-        if(mode === "old") return (da || 0) - (db || 0);
-        return (db || 0) - (da || 0); // newest
-      });
-
-      // Re-append in sorted order
-      visibleCards.forEach(c => grid.appendChild(c));
-    }
-
-    chips.forEach(btn => {
-      btn.addEventListener("click", () => {
-        chips.forEach(b => b.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        activeFilter = btn.dataset.filter;
-        applyFilter();
-        applySort();
-      });
-    });
-
-    sortSelect.addEventListener("change", applySort);
-
-    // Init
-    applyFilter();
-    applySort();
   </script>
 </body>
 </html>
