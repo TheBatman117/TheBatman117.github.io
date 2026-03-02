@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Featured · Applied AI Newsletter</title>
+  <meta name="description" content="Featured stories for the Applied AI Newsletter." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="theme-blue">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">Applied AI</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="featured.html">Featured</a>
+        <a href="latest.html">Latest</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+        <a class="cta" href="latest.html">Browse</a>
+      </div>
+    </div>
+  </header>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-top">
+      <strong>Menu</strong>
+      <button class="icon-btn close-btn" id="closeBtn" aria-label="Close menu" type="button">✕</button>
+    </div>
+    <nav class="drawer-nav" aria-label="Drawer">
+      <a href="about.html">Bio</a>
+      <a href="latest.html" id="drawerLatest">Browse Latest</a>
+      <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
+    </nav>
+  </aside>
+  <div class="backdrop" id="backdrop" hidden></div>
+
+  <main>
+    <section id="featured" class="section">
+      <div class="section-head">
+        <h2>Featured</h2>
+        <a class="section-link" href="latest.html">View latest</a>
+      </div>
+
+      <div class="featured-rotator" id="featuredRotator">
+        <a class="featured-hero" id="featuredLink" href="nightcafe-veo-latest-update.html">
+          <div class="featured-top">
+            <span class="tag" id="featuredTag">NightCafe</span>
+            <span class="date" id="featuredDate">Feb 13, 2026</span>
+          </div>
+
+          <h3 class="featured-title" id="featuredTitle">NightCafe Veo update deep dive</h3>
+          <p class="featured-desc" id="featuredDesc">
+            Ingredients to Video + native vertical output + what changes for real workflows.
+          </p>
+
+          <div class="featured-cta">Read story →</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Deon</div>
+    </div>
+  </footer>
+
+  <script>
+    // Drawer menu
+    const menuBtn = document.getElementById('menuBtn');
+    const drawer = document.getElementById('drawer');
+    const closeBtn = document.getElementById('closeBtn');
+    const backdrop = document.getElementById('backdrop');
+
+    function openDrawer(){
+      drawer.classList.add('open');
+      drawer.setAttribute('aria-hidden','false');
+      menuBtn.setAttribute('aria-expanded','true');
+      backdrop.hidden = false;
+      backdrop.classList.add('show');
+    }
+    function closeDrawer(){
+      drawer.classList.remove('open');
+      drawer.setAttribute('aria-hidden','true');
+      menuBtn.setAttribute('aria-expanded','false');
+      backdrop.hidden = true;
+      backdrop.classList.remove('show');
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    backdrop.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Featured rotator: ONLY 3 newest stories (auto-rotate every 5 seconds)
+    const featured = [
+      {
+        href: "nightcafe-veo-latest-update.html",
+        tag: "NightCafe",
+        date: "Feb 13, 2026",
+        title: "NightCafe Veo update deep dive",
+        desc: "Ingredients to Video + native vertical output + what changes for real workflows."
+      },
+      {
+        href: "nightcafe-flux2-klein-9b-fast.html",
+        tag: "NightCafe",
+        date: "Feb 3, 2026",
+        title: "Flux 2 Klein 9B Fast arrives",
+        desc: "Near-real-time generation and edits that change how often you iterate."
+      },
+      {
+        href: "nightcafe-three-scenes-workflows.html",
+        tag: "NightCafe",
+        date: "Jan 28, 2026",
+        title: "NightCafe “three-scene” workflow",
+        desc: "Lightning + Flux + composition control for consistent worldbuilding."
+      }
+    ];
+
+    const rotator = document.getElementById("featuredRotator");
+    const linkEl = document.getElementById("featuredLink");
+    const tagEl = document.getElementById("featuredTag");
+    const dateEl = document.getElementById("featuredDate");
+    const titleEl = document.getElementById("featuredTitle");
+    const descEl = document.getElementById("featuredDesc");
+
+    let idx = 0;
+    const ROTATE_MS = 5000;
+    const FADE_MS = 220;
+
+    function render(i){
+      const item = featured[i];
+      linkEl.href = item.href;
+      tagEl.textContent = item.tag;
+      dateEl.textContent = item.date;
+      titleEl.textContent = item.title;
+      descEl.textContent = item.desc;
+    }
+
+    function next(){
+      rotator.classList.add("is-fading");
+      setTimeout(() => {
+        idx = (idx + 1) % featured.length;
+        render(idx);
+        rotator.classList.remove("is-fading");
+      }, FADE_MS);
+    }
+
+    render(idx);
+    setInterval(next, ROTATE_MS);
+  </script>
+</body>
+</html>
