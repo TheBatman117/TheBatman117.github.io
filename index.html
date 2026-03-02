@@ -17,8 +17,8 @@
       </a>
 
       <nav class="primary-nav" aria-label="Primary">
-        <a href="featured.html">Featured</a>
-        <a href="latest.html">Latest</a>
+        <a href="#featured">Featured</a>
+        <a href="#latest">Latest</a>
         <a href="about.html">About</a>
       </nav>
 
@@ -26,7 +26,7 @@
         <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
           <span class="burger" aria-hidden="true"></span>
         </button>
-        <a class="cta" href="latest.html">Browse</a>
+        <a class="cta" href="#latest">Browse</a>
       </div>
     </div>
   </header>
@@ -38,16 +38,17 @@
     </div>
     <nav class="drawer-nav" aria-label="Drawer">
       <a href="about.html">Bio</a>
-      <a href="latest.html" id="drawerLatest">Browse Latest</a>
+      <a href="#latest" id="drawerLatest">Browse Latest</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
   <main>
+    <!-- HERO: rotates ALL stories every 5 seconds -->
     <section class="hero">
       <div class="hero-grid">
-        <div class="hero-copy" id="heroCopy">
+        <div class="hero-copy" id="heroRotator">
           <p class="kicker">LATEST STORY</p>
 
           <h1 class="hero-title" id="heroTitle">
@@ -61,7 +62,7 @@
 
           <div class="hero-actions">
             <a class="btn primary" id="heroRead" href="nightcafe-veo-latest-update.html">Read story</a>
-            <a class="btn ghost" href="latest.html">See all posts</a>
+            <a class="btn ghost" href="#latest">See all posts</a>
           </div>
 
           <div class="hero-meta" id="heroMeta">
@@ -82,6 +83,77 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- FEATURED: rotates ONLY 3 newest stories every 5 seconds -->
+    <section id="featured" class="section">
+      <div class="section-head">
+        <h2>Featured</h2>
+        <a class="section-link" href="#latest">View latest</a>
+      </div>
+
+      <div class="featured-rotator" id="featuredRotator">
+        <a class="featured-hero" id="featuredLink" href="nightcafe-nano-banana-2-nextgen-imaging.html">
+          <div class="featured-top">
+            <span class="tag" id="featuredTag">NightCafe</span>
+            <span class="date" id="featuredDate">Mar 2, 2026</span>
+          </div>
+
+          <h3 class="featured-title" id="featuredTitle">Nano Banana 2: Speed-First Iteration</h3>
+          <p class="featured-desc" id="featuredDesc">
+            Fast imaging built for creative loops, style locking, and rapid prompt refinement.
+          </p>
+
+          <div class="featured-cta">Read story →</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- LATEST: includes ALL stories (newest first) -->
+    <section id="latest" class="section alt">
+      <div class="section-head">
+        <h2>Latest</h2>
+        <span class="muted">Newest first</span>
+      </div>
+
+      <ul class="post-list">
+        <li>
+          <a href="nightcafe-nano-banana-2-nextgen-imaging.html">NightCafe Next-Gen AI Imaging: Nano Banana 2 (speed-first creative iteration)</a>
+          <span class="date">March 2, 2026</span>
+        </li>
+        <li>
+          <a href="nightcafe-seedream-5-lite-nextgen-imaging.html">NightCafe Next-Gen AI Imaging: Seedream 5.0 Lite (multi-reference editing workflows)</a>
+          <span class="date">March 2, 2026</span>
+        </li>
+        <li>
+          <a href="nightcafe-veo-latest-update.html">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</a>
+          <span class="date">February 13, 2026</span>
+        </li>
+        <li>
+          <a href="nightcafe-flux2-klein-9b-fast.html">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</a>
+          <span class="date">February 3, 2026</span>
+        </li>
+        <li>
+          <a href="nightcafe-three-scenes-workflows.html">NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</a>
+          <span class="date">January 28, 2026</span>
+        </li>
+        <li>
+          <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
+          <span class="date">January 25, 2026</span>
+        </li>
+        <li>
+          <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
+          <span class="date">January 25, 2026</span>
+        </li>
+        <li>
+          <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
+          <span class="date">January 25, 2026</span>
+        </li>
+        <li>
+          <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
+          <span class="date">January 25, 2026</span>
+        </li>
+      </ul>
     </section>
   </main>
 
@@ -122,91 +194,161 @@
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-    // Hero rotator: ALL stories every 5 seconds
-    const stories = [
+    // =========================
+    // HERO ROTATOR (ALL stories)
+    // =========================
+    const heroStories = [
+      {
+        href: "nightcafe-nano-banana-2-nextgen-imaging.html",
+        title: "NightCafe Next-Gen AI Imaging: Nano Banana 2 (speed-first creative iteration)",
+        sub: "Nano Banana 2 is built for fast loops: test → compare → refine → lock style, without burning time or credits.",
+        pills: ["NightCafe", "Next-Gen Imaging", "Speed"]
+      },
+      {
+        href: "nightcafe-seedream-5-lite-nextgen-imaging.html",
+        title: "NightCafe Next-Gen AI Imaging: Seedream 5.0 Lite (multi-reference editing workflows)",
+        sub: "Seedream 5.0 Lite is about revision: multi-reference edits and controlled changes that keep your image coherent.",
+        pills: ["Editing", "Multi-Reference", "Workflow"]
+      },
       {
         href: "nightcafe-veo-latest-update.html",
         title: "NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration",
-        sub: "A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity, and what it means inside NightCafe.",
+        sub: "A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity.",
         pills: ["NightCafe", "Veo 3.1", "AI Video"]
       },
       {
         href: "nightcafe-flux2-klein-9b-fast.html",
         title: "NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits",
-        sub: "What “Fast” actually changes: iteration speed, quick edits, and why near-real-time output shifts behavior for creators.",
-        pills: ["NightCafe", "Flux 2", "Fast Mode"]
+        sub: "Near-real-time output changes how often you iterate and how quickly you lock a consistent look.",
+        pills: ["NightCafe", "Flux", "Fast"]
       },
       {
         href: "nightcafe-three-scenes-workflows.html",
-        title: "NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding",
-        sub: "A practical workflow for consistent scenes and styles: prompt iteration, composition control, and building a reusable look across images.",
-        pills: ["NightCafe", "Workflow", "Consistency"]
+        title: "NightCafe workflow upgrade: cinematic “three-scene” worldbuilding",
+        sub: "A practical workflow for consistent scenes using Lightning + Flux + composition control.",
+        pills: ["NightCafe", "Workflow", "Worldbuilding"]
       },
       {
         href: "nightcafe-sdxl-lightning-flux-updates.html",
         title: "NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features",
-        sub: "Speed and pricing shifts that turn “generate” into an actual workflow you can repeat without hating your life.",
-        pills: ["SDXL", "Lightning", "Flux"]
+        sub: "Performance + pricing updates that turn “generate” into a repeatable creative workflow.",
+        pills: ["AI Art", "SDXL Lightning", "Flux"]
       },
       {
         href: "github-agent-hq-cloud-agent.html",
         title: "GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)",
-        sub: "Copilot as an ecosystem: managing multiple agents, delegating multi-file chores, and why GitHub wants to be the control plane.",
-        pills: ["GitHub", "Agents", "Copilot"]
+        sub: "Why GitHub wants to be the control plane for agentic development, and what that means for risk and convenience.",
+        pills: ["Agents", "GitHub", "Dev Tools"]
       },
       {
         href: "cursor-cli-agent-modes.html",
         title: "Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff",
-        sub: "Plan-first workflows in the CLI: why terminal-native agent loops matter for real-world dev work and handoffs.",
-        pills: ["Cursor", "CLI", "Agent Modes"]
+        sub: "Plan-first workflows in the terminal: plan → modify → test → handoff → review.",
+        pills: ["Cursor", "CLI", "Agents"]
       },
       {
         href: "claude-code-holiday-spike.html",
         title: "Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)",
-        sub: "A late-2025 adoption surge, why it went viral, and how the bottleneck is shifting from implementation to specification and judgment.",
-        pills: ["Claude", "Vibe Coding", "Anthropic"]
+        sub: "The adoption moment that pushed Claude Code from novelty to workflow tool, plus the risks of local-agent access.",
+        pills: ["Claude", "Vibe Coding", "Agents"]
       }
     ];
 
-    const heroCopy = document.getElementById("heroCopy");
+    const heroRotator = document.getElementById("heroRotator");
     const heroTitle = document.getElementById("heroTitle");
     const heroSub = document.getElementById("heroSub");
     const heroRead = document.getElementById("heroRead");
     const heroMeta = document.getElementById("heroMeta");
 
-    let i = 0;
-    const ROTATE_MS = 5000;
+    let heroIdx = 0;
+    const HERO_MS = 5000;
+    const HERO_FADE_MS = 220;
 
-    // Optional micro-fade without CSS changes: use inline opacity transition
-    heroCopy.style.transition = "opacity 220ms ease";
-    const FADE_MS = 220;
-
-    function renderStory(idx){
-      const s = stories[idx];
-      heroTitle.textContent = s.title;
-      heroSub.textContent = s.sub;
-      heroRead.href = s.href;
+    function renderHero(i){
+      const item = heroStories[i];
+      heroTitle.textContent = item.title;
+      heroSub.textContent = item.sub;
+      heroRead.href = item.href;
 
       heroMeta.innerHTML = "";
-      s.pills.forEach(txt => {
-        const span = document.createElement("span");
-        span.className = "pill";
-        span.textContent = txt;
-        heroMeta.appendChild(span);
+      item.pills.forEach(p => {
+        const s = document.createElement("span");
+        s.className = "pill";
+        s.textContent = p;
+        heroMeta.appendChild(s);
       });
     }
 
-    function nextStory(){
-      heroCopy.style.opacity = "0";
+    function nextHero(){
+      heroRotator.classList.add("is-fading");
       setTimeout(() => {
-        i = (i + 1) % stories.length;
-        renderStory(i);
-        heroCopy.style.opacity = "1";
+        heroIdx = (heroIdx + 1) % heroStories.length;
+        renderHero(heroIdx);
+        heroRotator.classList.remove("is-fading");
+      }, HERO_FADE_MS);
+    }
+
+    renderHero(heroIdx);
+    setInterval(nextHero, HERO_MS);
+
+    // =================================
+    // FEATURED ROTATOR (3 newest stories)
+    // =================================
+    const featured = [
+      {
+        href: "nightcafe-nano-banana-2-nextgen-imaging.html",
+        tag: "NightCafe",
+        date: "Mar 2, 2026",
+        title: "Nano Banana 2: Speed-First Iteration",
+        desc: "Fast imaging built for creative loops, style locking, and rapid prompt refinement."
+      },
+      {
+        href: "nightcafe-seedream-5-lite-nextgen-imaging.html",
+        tag: "Imaging + Editing",
+        date: "Mar 2, 2026",
+        title: "Seedream 5.0 Lite: Multi-Reference Editing",
+        desc: "Fast edit cycles and controlled revisions for consistency across sets."
+      },
+      {
+        href: "nightcafe-veo-latest-update.html",
+        tag: "NightCafe",
+        date: "Feb 13, 2026",
+        title: "NightCafe Veo update deep dive",
+        desc: "Ingredients to Video + native vertical output + what changes for real workflows."
+      }
+    ];
+
+    const rotator = document.getElementById("featuredRotator");
+    const linkEl = document.getElementById("featuredLink");
+    const tagEl = document.getElementById("featuredTag");
+    const dateEl = document.getElementById("featuredDate");
+    const titleEl = document.getElementById("featuredTitle");
+    const descEl = document.getElementById("featuredDesc");
+
+    let featIdx = 0;
+    const ROTATE_MS = 5000;
+    const FADE_MS = 220;
+
+    function renderFeatured(i){
+      const item = featured[i];
+      linkEl.href = item.href;
+      tagEl.textContent = item.tag;
+      dateEl.textContent = item.date;
+      titleEl.textContent = item.title;
+      descEl.textContent = item.desc;
+    }
+
+    function nextFeatured(){
+      rotator.classList.add("is-fading");
+      setTimeout(() => {
+        featIdx = (featIdx + 1) % featured.length;
+        renderFeatured(featIdx);
+        rotator.classList.remove("is-fading");
       }, FADE_MS);
     }
 
-    renderStory(i);
-    setInterval(nextStory, ROTATE_MS);
+    renderFeatured(featIdx);
+    setInterval(nextFeatured, ROTATE_MS);
   </script>
 </body>
 </html>
