@@ -47,22 +47,24 @@
   <main>
     <section class="hero">
       <div class="hero-grid">
-        <div class="hero-copy">
+        <div class="hero-copy" id="heroCopy">
           <p class="kicker">LATEST STORY</p>
-          <h1 class="hero-title">
+
+          <h1 class="hero-title" id="heroTitle">
             NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration
           </h1>
-          <p class="hero-sub">
+
+          <p class="hero-sub" id="heroSub">
             A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity,
             and what it means inside NightCafe.
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="nightcafe-veo-latest-update.html">Read story</a>
+            <a class="btn primary" id="heroRead" href="nightcafe-veo-latest-update.html">Read story</a>
             <a class="btn ghost" href="latest.html">See all posts</a>
           </div>
 
-          <div class="hero-meta">
+          <div class="hero-meta" id="heroMeta">
             <span class="pill">NightCafe</span>
             <span class="pill">Veo 3.1</span>
             <span class="pill">AI Video</span>
@@ -119,6 +121,92 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Hero rotator: ALL stories every 5 seconds
+    const stories = [
+      {
+        href: "nightcafe-veo-latest-update.html",
+        title: "NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration",
+        sub: "A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity, and what it means inside NightCafe.",
+        pills: ["NightCafe", "Veo 3.1", "AI Video"]
+      },
+      {
+        href: "nightcafe-flux2-klein-9b-fast.html",
+        title: "NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits",
+        sub: "What “Fast” actually changes: iteration speed, quick edits, and why near-real-time output shifts behavior for creators.",
+        pills: ["NightCafe", "Flux 2", "Fast Mode"]
+      },
+      {
+        href: "nightcafe-three-scenes-workflows.html",
+        title: "NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding",
+        sub: "A practical workflow for consistent scenes and styles: prompt iteration, composition control, and building a reusable look across images.",
+        pills: ["NightCafe", "Workflow", "Consistency"]
+      },
+      {
+        href: "nightcafe-sdxl-lightning-flux-updates.html",
+        title: "NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features",
+        sub: "Speed and pricing shifts that turn “generate” into an actual workflow you can repeat without hating your life.",
+        pills: ["SDXL", "Lightning", "Flux"]
+      },
+      {
+        href: "github-agent-hq-cloud-agent.html",
+        title: "GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)",
+        sub: "Copilot as an ecosystem: managing multiple agents, delegating multi-file chores, and why GitHub wants to be the control plane.",
+        pills: ["GitHub", "Agents", "Copilot"]
+      },
+      {
+        href: "cursor-cli-agent-modes.html",
+        title: "Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff",
+        sub: "Plan-first workflows in the CLI: why terminal-native agent loops matter for real-world dev work and handoffs.",
+        pills: ["Cursor", "CLI", "Agent Modes"]
+      },
+      {
+        href: "claude-code-holiday-spike.html",
+        title: "Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)",
+        sub: "A late-2025 adoption surge, why it went viral, and how the bottleneck is shifting from implementation to specification and judgment.",
+        pills: ["Claude", "Vibe Coding", "Anthropic"]
+      }
+    ];
+
+    const heroCopy = document.getElementById("heroCopy");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroSub = document.getElementById("heroSub");
+    const heroRead = document.getElementById("heroRead");
+    const heroMeta = document.getElementById("heroMeta");
+
+    let i = 0;
+    const ROTATE_MS = 5000;
+
+    // Optional micro-fade without CSS changes: use inline opacity transition
+    heroCopy.style.transition = "opacity 220ms ease";
+    const FADE_MS = 220;
+
+    function renderStory(idx){
+      const s = stories[idx];
+      heroTitle.textContent = s.title;
+      heroSub.textContent = s.sub;
+      heroRead.href = s.href;
+
+      heroMeta.innerHTML = "";
+      s.pills.forEach(txt => {
+        const span = document.createElement("span");
+        span.className = "pill";
+        span.textContent = txt;
+        heroMeta.appendChild(span);
+      });
+    }
+
+    function nextStory(){
+      heroCopy.style.opacity = "0";
+      setTimeout(() => {
+        i = (i + 1) % stories.length;
+        renderStory(i);
+        heroCopy.style.opacity = "1";
+      }, FADE_MS);
+    }
+
+    renderStory(i);
+    setInterval(nextStory, ROTATE_MS);
   </script>
 </body>
 </html>
