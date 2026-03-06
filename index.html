@@ -18,11 +18,20 @@
 
       <nav class="primary-nav" aria-label="Primary">
         <a href="featured.html">Featured</a>
-        <a href="latest.html">Latest</a>
+        <a href="latest.html">Stories</a>
         <a href="about.html">About</a>
       </nav>
 
       <div class="header-actions">
+        <form action="latest.html" method="get" role="search" aria-label="Site search" style="display:inline-flex; align-items:center;">
+          <input
+            type="search"
+            name="q"
+            placeholder="Search"
+            aria-label="Search"
+            style="height:44px; width:170px; padding:0 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03); color:inherit; outline:none;"
+          />
+        </form>
         <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
           <span class="burger" aria-hidden="true"></span>
         </button>
@@ -38,7 +47,7 @@
     </div>
     <nav class="drawer-nav" aria-label="Drawer">
       <a href="about.html">Bio</a>
-      <a href="latest.html" id="drawerLatest">Browse Latest</a>
+      <a href="latest.html" id="drawerLatest">Browse Stories</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
