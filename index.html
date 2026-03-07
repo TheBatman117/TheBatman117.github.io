@@ -23,19 +23,22 @@
       </nav>
 
       <div class="header-actions">
-        <form action="latest.html" method="get" role="search" aria-label="Site search" style="display:inline-flex; align-items:center;">
+
+        <!-- SEARCH BAR -->
+        <form id="searchForm" role="search" aria-label="Site search" style="display:inline-flex; align-items:center;">
           <input
+            id="searchInput"
             type="search"
-            name="q"
-            placeholder="Search"
+            placeholder="Search stories..."
             aria-label="Search"
             style="height:44px; width:170px; padding:0 12px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03); color:inherit; outline:none;"
           />
         </form>
+
         <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
           <span class="burger" aria-hidden="true"></span>
         </button>
-        <a class="cta" href="latest.html">Browse</a>
+
       </div>
     </div>
   </header>
@@ -131,48 +134,48 @@
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
 
-    // Hero rotator: ALL stories every 5 seconds
+    // Hero rotator
     const stories = [
       {
         href: "nightcafe-veo-latest-update.html",
         title: "NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration",
-        sub: "A researched deep dive into Veo 3.1 changes that matter for creators: reference-driven control, 9:16 output, better continuity, and what it means inside NightCafe.",
+        sub: "A researched deep dive into Veo 3.1 changes that matter for creators.",
         pills: ["NightCafe", "Veo 3.1", "AI Video"]
       },
       {
         href: "nightcafe-flux2-klein-9b-fast.html",
         title: "NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits",
-        sub: "What “Fast” actually changes: iteration speed, quick edits, and why near-real-time output shifts behavior for creators.",
+        sub: "What 'Fast' actually changes for creators.",
         pills: ["NightCafe", "Flux 2", "Fast Mode"]
       },
       {
         href: "nightcafe-three-scenes-workflows.html",
-        title: "NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding",
-        sub: "A practical workflow for consistent scenes and styles: prompt iteration, composition control, and building a reusable look across images.",
+        title: "NightCafe workflow upgrade: cinematic three-scene worldbuilding",
+        sub: "A practical workflow for consistent scenes.",
         pills: ["NightCafe", "Workflow", "Consistency"]
       },
       {
         href: "nightcafe-sdxl-lightning-flux-updates.html",
-        title: "NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features",
-        sub: "Speed and pricing shifts that turn “generate” into an actual workflow you can repeat without hating your life.",
+        title: "NightCafe adds faster SDXL Lightning options and upgrades Flux pricing",
+        sub: "Speed and pricing shifts for creators.",
         pills: ["SDXL", "Lightning", "Flux"]
       },
       {
         href: "github-agent-hq-cloud-agent.html",
-        title: "GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)",
-        sub: "Copilot as an ecosystem: managing multiple agents, delegating multi-file chores, and why GitHub wants to be the control plane.",
+        title: "GitHub turns into mission control for coding agents",
+        sub: "Managing multiple AI coding agents.",
         pills: ["GitHub", "Agents", "Copilot"]
       },
       {
         href: "cursor-cli-agent-modes.html",
-        title: "Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff",
-        sub: "Plan-first workflows in the CLI: why terminal-native agent loops matter for real-world dev work and handoffs.",
-        pills: ["Cursor", "CLI", "Agent Modes"]
+        title: "Cursor pushes agent workflows into the terminal",
+        sub: "CLI-first AI development loops.",
+        pills: ["Cursor", "CLI", "Agents"]
       },
       {
         href: "claude-code-holiday-spike.html",
-        title: "Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)",
-        sub: "A late-2025 adoption surge, why it went viral, and how the bottleneck is shifting from implementation to specification and judgment.",
+        title: "Claude Code’s holiday spike made vibe coding mainstream",
+        sub: "Anthropic's developer momentum.",
         pills: ["Claude", "Vibe Coding", "Anthropic"]
       }
     ];
@@ -185,8 +188,6 @@
 
     let i = 0;
     const ROTATE_MS = 5000;
-
-    // Optional micro-fade without CSS changes: use inline opacity transition
     heroCopy.style.transition = "opacity 220ms ease";
     const FADE_MS = 220;
 
@@ -216,6 +217,26 @@
 
     renderStory(i);
     setInterval(nextStory, ROTATE_MS);
+
+    // SEARCH FUNCTION
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+
+    searchForm.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const query = searchInput.value.toLowerCase();
+
+      const match = stories.find(story =>
+        story.title.toLowerCase().includes(query)
+      );
+
+      if(match){
+        window.location.href = match.href;
+      } else {
+        window.location.href = "latest.html";
+      }
+    });
   </script>
 </body>
 </html>
