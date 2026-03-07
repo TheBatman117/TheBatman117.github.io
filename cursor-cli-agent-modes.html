@@ -1,50 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</title>
+  <meta name="description" content="A newsletter story on Cursor bringing agent workflows to the terminal with CLI Agent Modes and Cloud Handoff." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Applied AI Newsletter</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">Applied AI</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="featured.html">Featured</a>
+        <a href="stories.html">Stories</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cta" href="stories.html">Stories</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <article>
-      <h2>Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</h2>
-      <p class="date">January 25, 2026</p>
+    <section class="section">
+      <article class="card" style="padding: 22px;">
+        <div class="card-top">
+          <span class="tag">AI Coding</span>
+          <span class="date">January 25, 2026</span>
+        </div>
 
-      <p>
-        Cursor has been acting less like “an AI code editor” and more like “a coordination layer for agents.”
-        The newest move is bringing agent modes to the Cursor CLI, so you can do the same plan-first workflow
-        you’d use in the editor, but from a terminal session. Their changelog calls out a Plan mode that prompts
-        you to outline the approach before it starts changing files, launched via <code>/plan</code> or
-        <code>--mode=plan</code>, plus “Cloud Handoff” to move work between environments without losing the thread.
-      </p>
+        <h1 style="margin: 0 0 14px; font-size: clamp(28px, 3vw, 42px); line-height: 1.08;">
+          Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff
+        </h1>
 
-      <p>
-        This matters because a lot of real-world coding is still terminal-native: SSH boxes, containers, quick repo
-        surgery, CI debugging, and “I swear this will be a small change” moments. A CLI agent that can plan, execute,
-        and then hand off the state cleanly is Cursor admitting what everyone already knows: the IDE isn’t the only
-        battlefield.
-      </p>
+        
+        <p style="line-height:1.8;">
+          Cursor has been acting less like “an AI code editor” and more like “a coordination layer for agents.”
+          The newest move is bringing agent modes to the Cursor CLI, so users can follow the same plan-first workflow
+          they might use in the editor, but from a terminal session. Cursor’s changelog highlighted a Plan mode that
+          prompts the user to outline the approach before the system starts changing files, launched through
+          <code>/plan</code> or <code>--mode=plan</code>, along with “Cloud Handoff,” which allows work to move between
+          environments without losing the thread.
+        </p>
 
-      <p>
-        I think that this is a modern-day AI version of the US and Russia’s arms race behind all the flashy “agents”
-        talk. Because the winner won’t just have a smart model. They’ll have the most flawless and least-friction loop
-        for: plan → modify → test → handoff → review, and Cursor is trying to make that loop feel inevitable.
-      </p>
-    </article>
+        
+        <p style="line-height:1.8;">
+          This matters because much of real-world coding is still terminal-native. Developers spend time in SSH boxes,
+          containers, quick repo edits, CI debugging environments, and all those “this should only take five minutes”
+          moments that somehow become an evening. A CLI agent that can plan, execute, and then hand off the state cleanly
+          is Cursor acknowledging something developers have known for years: the IDE is not the only battlefield.
+        </p>
+
+        
+        <p style="line-height:1.8;">
+          What makes this especially interesting from an Applied AI perspective is that Cursor is not just trying to build
+          a smarter autocomplete tool. It is trying to reduce the friction across an entire development loop:
+          <strong>plan → modify → test → handoff → review</strong>. The intelligence of the model still matters, of course,
+          but workflow design may matter even more. The best AI coding platforms are not necessarily the ones with the most
+          impressive demos. They are the ones that make repeated, real work feel seamless.
+        </p>
+
+        
+        <p style="line-height:1.8;">
+          My own take is that this looks like a modern AI version of an arms race. Beneath all the flashy agent language,
+          the real competition is about who can create the cleanest and least-friction path between user intent and verified
+          output. Cursor is betting that developers do not just want AI help inside a polished editor window. They want a system
+          that works where they already work. If that bet pays off, the terminal stops being a “legacy” environment and becomes
+          one of the most important places where agent-based development matures.
+        </p>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,.10); margin: 22px 0;" />
+
+        <h2 style="margin:0 0 10px;">Sources</h2>
+        <ul style="line-height:1.8;">
+          <li>
+            Cursor changelog and product updates:
+            <a href="https://www.cursor.com/changelog" target="_blank" rel="noopener noreferrer">
+              cursor.com/changelog
+            </a>
+          </li>
+          <li>
+            Cursor homepage and product overview:
+            <a href="https://www.cursor.com/" target="_blank" rel="noopener noreferrer">
+              cursor.com
+            </a>
+          </li>
+          <li>
+            Applied AI Observer coverage of AI coding tools and agent workflows:
+            <a href="https://www.appliedaiobserver.com/" target="_blank" rel="noopener noreferrer">
+              appliedaiobserver.com
+            </a>
+          </li>
+        </ul>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Batman117</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Batman117</div>
+    </div>
   </footer>
 </body>
 </html>
