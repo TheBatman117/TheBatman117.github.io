@@ -1,51 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</title>
+  <meta name="description" content="A newsletter story on GitHub Agent HQ and the rise of multi-agent development workflows." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Applied AI Newsletter</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">Applied AI</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="featured.html">Featured</a>
+        <a href="stories.html">Stories</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cta" href="stories.html">Stories</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <article>
-      <h2>GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</h2>
-      <p class="date">January 25, 2026</p>
+    <section class="section">
+      <article class="card" style="padding: 22px;">
+        <div class="card-top">
+          <span class="tag">AI Development</span>
+          <span class="date">January 25, 2026</span>
+        </div>
 
-      <p>
-        GitHub is increasingly treating AI help as an ecosystem, not a single assistant. The Verge reported GitHub
-        rolling out “Agent HQ,” a hub where Copilot subscribers can access and manage multiple coding agents,
-        including third-party options like OpenAI Codex, Anthropic Claude, Google Jules, and Devin, with a
-        “mission control” style dashboard to run agents in parallel and compare outputs.
-      </p>
+        <h1 style="margin: 0 0 14px; font-size: clamp(28px, 3vw, 42px); line-height: 1.08;">
+          GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)
+        </h1>
 
-      <p>
-        At the same time, GitHub keeps pushing AI deeper into the production pipeline: Copilot code review is
-        generally available (so you can offload basic review passes to an agent), and Visual Studio 2026 release
-        notes mention a “GitHub Cloud Agent” preview for delegating multi-file chores like refactors and doc updates,
-        then reviewing the changes later.
-      </p>
+        <p style="line-height:1.8;">
+          GitHub is increasingly treating AI assistance as an ecosystem rather than a single assistant.
+          Reports from technology outlets describe GitHub rolling out a system known as <strong>Agent HQ</strong>,
+          a centralized hub where Copilot subscribers can access and manage multiple coding agents at once.
+          Instead of relying on only one AI assistant, developers can experiment with different agents
+          including systems powered by OpenAI Codex, Anthropic Claude, and other emerging models.
+          The concept resembles a “mission control” dashboard where developers can run agents in parallel,
+          compare results, and choose the best implementation for a given task.
+        </p>
 
-      <p>
-        I believe that GitHub is aiming to be the control plane for agentic development, where your repo, PRs,
-        reviews, and automation live. While that’s convenient, to some people (especially those who don’t like AI),
-        it can also be a little terrifying, because it centralizes both productivity and risk in one place. Just
-        like how everything else in our software history suggests, we will choose convenience, then act surprised
-        about the risk later.
-      </p>
-    </article>
+        <p style="line-height:1.8;">
+          At the same time, GitHub continues pushing AI deeper into the software production pipeline.
+          Copilot code review capabilities have expanded so that developers can offload early review
+          passes to an agent before a human reviewer looks at the changes. Meanwhile, preview notes
+          surrounding Visual Studio updates mention a <strong>GitHub Cloud Agent</strong> concept designed
+          to handle larger tasks such as multi-file refactoring, documentation updates, and automated
+          repository maintenance. Developers can assign the task to an agent, allow it to generate
+          the changes, and then review the results through the normal pull request workflow.
+        </p>
+
+        <p style="line-height:1.8;">
+          This development represents a broader shift in Applied AI toward what researchers often call
+          <em>agentic workflows</em>. Instead of using AI as a one-off assistant that generates code snippets,
+          developers increasingly rely on systems that can perform sequences of actions: analyze a repository,
+          propose modifications, implement those modifications, and then submit the results for review.
+          Platforms like GitHub are uniquely positioned to support this model because they already sit at
+          the center of the development lifecycle, hosting repositories, pull requests, issue tracking,
+          and collaboration tools.
+        </p>
+
+        <p style="line-height:1.8;">
+          From a strategic perspective, GitHub appears to be positioning itself as the control plane
+          for this new style of development. If the repository is where code lives and pull requests
+          are where decisions happen, then integrating agents directly into that workflow allows GitHub
+          to orchestrate how AI participates in development. Rather than forcing developers to jump
+          between separate AI tools and coding environments, GitHub can keep the entire process inside
+          the same ecosystem where work is already happening.
+        </p>
+
+        <p style="line-height:1.8;">
+          Of course, centralizing this level of automation comes with trade-offs. While having a unified
+          system for coordinating agents can significantly increase productivity, it also concentrates
+          both power and risk in a single platform. If agents are making changes across repositories,
+          performing automated reviews, and assisting with major refactors, developers must remain
+          vigilant about oversight and verification. As with many technological conveniences throughout
+          software history, teams will likely adopt the efficiency first and only later confront the
+          risks that come with it.
+        </p>
+
+        <p style="line-height:1.8;">
+          Regardless of those concerns, the emergence of systems like Agent HQ illustrates an important
+          direction for Applied AI. Instead of isolated AI tools that operate independently, the future
+          may revolve around environments that coordinate multiple specialized agents working together
+          within the same workflow. If that model succeeds, platforms like GitHub will not just host
+          code repositories; they will effectively function as operating systems for collaborative,
+          AI-assisted development.
+        </p>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,.10); margin: 22px 0;" />
+
+        <h2 style="margin:0 0 10px;">Sources</h2>
+        <ul style="line-height:1.8;">
+          <li>
+            The Verge – coverage of GitHub Copilot and multi-agent development tools:
+            <a href="https://www.theverge.com/" target="_blank" rel="noopener noreferrer">
+              theverge.com
+            </a>
+          </li>
+          <li>
+            GitHub Copilot product updates and documentation:
+            <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">
+              github.com/features/copilot
+            </a>
+          </li>
+          <li>
+            Microsoft / GitHub developer blogs discussing AI agents and coding workflows:
+            <a href="https://github.blog/" target="_blank" rel="noopener noreferrer">
+              github.blog
+            </a>
+          </li>
+        </ul>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Batman117</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Batman117</div>
+    </div>
   </footer>
 </body>
 </html>
