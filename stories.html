@@ -18,7 +18,7 @@
 
       <nav class="primary-nav" aria-label="Primary">
         <a href="featured.html">Featured</a>
-        <a href="latest.html">Stories</a>
+        <a href="stories.html">Stories</a>
         <a href="about.html">About</a>
       </nav>
 
@@ -26,7 +26,6 @@
         <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false" type="button">
           <span class="burger" aria-hidden="true"></span>
         </button>
-        <a class="cta" href="latest.html">Browse</a>
       </div>
     </div>
   </header>
@@ -38,7 +37,7 @@
     </div>
     <nav class="drawer-nav" aria-label="Drawer">
       <a href="about.html">Bio</a>
-      <a href="latest.html" id="drawerLatest">Browse Stories</a>
+      <a href="stories.html" id="drawerLatest">Browse Stories</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
@@ -51,16 +50,11 @@
         <span class="muted">Newest first</span>
       </div>
 
-      <div style="margin-bottom: 16px;">
-        <label for="storyFilter" class="muted" style="margin-right: 10px;">Filter:</label>
-        <select id="storyFilter" style="height: 40px; padding: 0 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03); color:inherit;">
-          <option value="all">All</option>
-          <option value="nightcafe">NightCafe</option>
-          <option value="agents">Agents</option>
-        </select>
-      </div>
-
       <ul class="post-list" id="storyList">
+        <li data-category="agents">
+          <a href="codex-security-research-preview.html">Codex Security and the rise of AI systems that don’t just find problems, but help fix them</a>
+          <span class="date">March 6, 2026</span>
+        </li>
         <li data-category="nightcafe">
           <a href="nightcafe-veo-latest-update.html">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</a>
           <span class="date">February 13, 2026</span>
@@ -104,7 +98,6 @@
   </footer>
 
   <script>
-    // Drawer menu
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const closeBtn = document.getElementById('closeBtn');
@@ -129,23 +122,6 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
-
-    // Story filter
-    const storyFilter = document.getElementById('storyFilter');
-    const storyItems = document.querySelectorAll('#storyList li');
-
-    storyFilter.addEventListener('change', () => {
-      const selected = storyFilter.value;
-
-      storyItems.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (selected === 'all' || category === selected) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
   </script>
 </body>
 </html>
