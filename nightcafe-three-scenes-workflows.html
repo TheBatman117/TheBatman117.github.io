@@ -1,115 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</title>
+  <meta name="description" content="A newsletter story on NightCafe workflow improvements including Flux models, ControlNet guidance, and SDXL Lightning iteration speed." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Applied AI Newsletter</h1>
-    <nav>
-      <a href="index.html">Home</a> |
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="logo" href="index.html">
+      <span class="logo-dot"></span>
+      <span class="logo-text">Applied AI</span>
+    </a>
+
+    <nav class="primary-nav">
+      <a href="featured.html">Featured</a>
+      <a href="stories.html">Stories</a>
       <a href="about.html">About</a>
     </nav>
-  </header>
 
-  <main>
-    <article>
-      <h2>NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</h2>
-      <p class="date">January 25, 2026</p>
+    <div class="header-actions">
+      <a class="cta" href="stories.html">Stories</a>
+    </div>
 
-      <!-- HERO IMAGE (Underworld deity) -->
-      <figure>
-        <img src="images/nightcafe-underworld-deity.jpg" alt="A hooded underworld figure with a flaming skull face aiming a weapon, surrounded by fire." />
-        <figcaption>
-          Hero concept: “signature character” imagery works best when you can iterate fast and keep style consistent.
-        </figcaption>
-      </figure>
+  </div>
+</header>
 
-      <p>
-        NightCafe’s recent model + workflow direction is pretty clear: less “one cool image” and more “repeatable creative pipeline.”
-        The practical win isn’t just higher quality. It’s being able to build a consistent visual world across multiple scenes,
-        characters, and settings without burning hours fighting randomness.
-      </p>
 
-      <!-- ITEM 1 -->
-      <h3>1) Flux models: cleaner anatomy + better text, plus higher-end options like Flux Ultra</h3>
-      <p>
-        NightCafe has been highlighting Flux as a strong “pro” option, pointing to improvements in prompt understanding, text rendering,
-        and anatomy (yes, hands). They’ve also highlighted Flux Ultra as a higher-tier option that generates larger images and includes a
-        “Raw” mode meant to reduce the overly processed look some people associate with certain outputs.
-      </p>
-      <p>
-        Why this matters: if you’re building a recurring character (like your underworld figure), the “baseline correctness” matters as much
-        as the style. Fewer anatomy failures means fewer wasted generations, and better text handling makes it easier to do posters, title cards,
-        signage, or UI-style elements that don’t immediately fall apart.
-      </p>
 
-      <!-- ITEM 2 IMAGE (Futuristic soldier in medieval world) -->
-      <figure>
-        <img src="images/nightcafe-future-medieval.jpg" alt="A futuristic armored soldier overlooking a medieval village and castle in a misty valley." />
-        <figcaption>
-          Scene control: hybrid settings look believable when composition and structure stay consistent across iterations.
-        </figcaption>
-      </figure>
+<main>
 
-      <!-- ITEM 2 -->
-      <h3>2) ControlNet + guided workflows: stop “rolling the dice” on composition</h3>
-      <p>
-        One of the best ways to make multi-scene worldbuilding feel coherent is controlling composition. NightCafe has published explainer content on
-        ControlNet, which is designed to give you more control over structure by using guidance inputs rather than relying on pure text prompting.
-      </p>
-      <p>
-        This matters for “sci-fi soldier in medieval world” scenes because you’re blending visual languages. ControlNet-style guidance is the difference between:
-        “cool concept, weird framing” and “repeatable shot language.” In practice, you can lock down the pose, perspective, or layout, then iterate on style,
-        armor details, lighting, and environment until it looks like a real setting instead of a lucky accident.
-      </p>
+<section class="section">
 
-      <!-- ITEM 3 IMAGE (Ominous house) -->
-      <figure>
-        <img src="images/nightcafe-ominous-house.jpg" alt="An ominous Victorian mansion in fog with warm light glowing from windows." />
-        <figcaption>
-          Rapid iteration: mood scenes improve fast when you can generate variations quickly and compare results.
-        </figcaption>
-      </figure>
+<article class="card" style="padding:22px;">
 
-      <!-- ITEM 3 -->
-      <h3>3) SDXL Lightning models: speed changes behavior (and results)</h3>
-      <p>
-        NightCafe has explicitly promoted SDXL “Lightning” options as faster-generation models, including multiple Lightning variants in their updates.
-        The creative impact is simple: when generations are quicker, you experiment more. That means more lighting passes, more prompt tweaks, more framing trials,
-        and more chances to “lock in” a consistent look.
-      </p>
-      <p>
-        For haunted-house or fog-heavy scenes, Lightning speed is especially useful because atmosphere is iterative. You’re not just generating “a house.”
-        You’re dialing in fog density, window glow, angle, distance, and mood until it feels cinematic. Speed makes that process feel like a workflow, not a chore.
-      </p>
+<div class="card-top">
+  <span class="tag">NightCafe</span>
+  <span class="date">January 25, 2026</span>
+</div>
 
-      <h3>My take</h3>
-      <p>
-        These three images are basically a cheat-code template: <em>character</em> (underworld figure), <em>world</em> (hybrid medieval sci-fi),
-        and <em>location</em> (ominous house). NightCafe’s real advantage is stacking tools that support that pipeline: fast iterations (Lightning),
-        stronger baseline results (Flux), and composition control (ControlNet-style guidance). The “boring” workflow upgrades are what make the platform usable
-        for anything bigger than a one-off post.
-      </p>
 
-      <hr />
 
-      <h3>Sources you can verify</h3>
-      <ul>
-        <li><a href="https://nightcafe.studio/blogs/blog/updates-5-new-sdxl-lightning-models">NightCafe: “5 New SDXL & Lightning Models” (Update post)</a></li>
-        <li><a href="https://nightcafe.studio/blogs/blog/updates-flux-forever-luma-dream-machine-more">NightCafe: “Flux Forever…” (Update post)</a></li>
-        <li><a href="https://nightcafe.studio/blogs/blog/updates-flux-ultra-recraft-v3-more">NightCafe: “Flux Ultra…” (Update post)</a></li>
-        <li><a href="https://help.nightcafe.studio/portal/en/kb/articles/usage-guide-flux-1-kontext-image-editing">NightCafe Help: “FLUX.1 Kontext Image Editing”</a></li>
-        <li><a href="https://nightcafe.studio/blogs/info/what-is-controlnet-stable-diffusion">NightCafe: “What is ControlNet?” (Explainer)</a></li>
-      </ul>
-    </article>
-  </main>
+<h1 style="margin:0 0 14px;font-size:clamp(28px,3vw,42px);line-height:1.08;">
+NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding
+</h1>
 
-  <footer>
-    <p>&copy; 2026 Batman117</p>
-  </footer>
+
+
+<!-- HERO IMAGE -->
+<figure>
+  <img src="images/nightcafe-underworld-deity.jpg"
+       alt="A hooded underworld figure with a flaming skull face aiming a weapon surrounded by fire." />
+
+  <figcaption>
+    Hero concept: “signature character” imagery works best when you can iterate quickly while maintaining style consistency.
+  </figcaption>
+</figure>
+
+
+
+<p style="line-height:1.8;">
+NightCafe’s recent model and workflow direction makes its strategy pretty clear. The platform is moving away from the
+idea of generating a single impressive image and toward supporting a repeatable creative pipeline. The real benefit
+is not simply higher quality output, but the ability to create a consistent visual world across multiple scenes,
+characters, and environments without constantly fighting randomness.
+</p>
+
+
+
+<h3>1) Flux models: cleaner anatomy, better text, and higher-end options like Flux Ultra</h3>
+
+<p style="line-height:1.8;">
+NightCafe has been highlighting Flux models as one of its stronger professional options, emphasizing improvements
+in prompt understanding, text rendering, and anatomical accuracy. The platform also promotes Flux Ultra as a
+higher-end version capable of producing larger images and offering a “Raw” mode designed to reduce the overly
+processed aesthetic that sometimes appears in AI-generated images.
+</p>
+
+<p style="line-height:1.8;">
+These improvements matter when you are building a recurring character or concept. If the baseline anatomy,
+structure, and text elements behave correctly, creators waste fewer generations fixing mistakes and can instead
+focus on refining style and storytelling elements. Better text rendering also allows for poster designs, title
+cards, signage, or UI-style graphics that remain readable instead of collapsing into distorted lettering.
+</p>
+
+
+
+<!-- ITEM 2 IMAGE -->
+<figure>
+  <img src="images/nightcafe-future-medieval.jpg"
+       alt="A futuristic armored soldier overlooking a medieval village and castle in a misty valley." />
+
+  <figcaption>
+    Scene control: hybrid settings look far more believable when structure and composition remain consistent across iterations.
+  </figcaption>
+</figure>
+
+
+
+<h3>2) ControlNet and guided workflows: reducing randomness in composition</h3>
+
+<p style="line-height:1.8;">
+Another important piece of NightCafe’s workflow evolution involves ControlNet-style guidance. The platform has
+published explainers on how ControlNet works and how it allows creators to guide structural elements such as
+pose, perspective, and composition instead of relying entirely on text prompts.
+</p>
+
+<p style="line-height:1.8;">
+This becomes particularly useful when creating hybrid environments such as futuristic soldiers in medieval
+settings. ControlNet guidance helps maintain stable shot composition so that creators can iterate on armor,
+lighting, or environmental details without losing the overall structure of the scene. Instead of producing
+randomly framed images each time, the workflow starts to resemble a controlled cinematographic process.
+</p>
+
+
+
+<!-- ITEM 3 IMAGE -->
+<figure>
+  <img src="images/nightcafe-ominous-house.jpg"
+       alt="An ominous Victorian mansion in fog with warm light glowing from its windows." />
+
+  <figcaption>
+    Rapid iteration: atmospheric scenes improve quickly when creators can generate and compare multiple variations.
+  </figcaption>
+</figure>
+
+
+
+<h3>3) SDXL Lightning models: speed changes creative behavior</h3>
+
+<p style="line-height:1.8;">
+NightCafe has also promoted SDXL Lightning models as faster generation options. Multiple Lightning variants
+have appeared in recent updates, emphasizing the platform’s push toward quicker iteration cycles.
+</p>
+
+<p style="line-height:1.8;">
+Speed has a surprisingly large impact on creativity. When images generate quickly, creators are far more willing
+to experiment with different lighting conditions, prompt variations, camera angles, and environmental elements.
+Scenes such as foggy haunted houses or atmospheric landscapes benefit particularly from rapid iteration because
+the final look often emerges through gradual adjustments rather than a single perfect prompt.
+</p>
+
+
+
+<h3>My take</h3>
+
+<p style="line-height:1.8;">
+These three example scenes illustrate a practical workflow pattern: a signature character, a broader world,
+and a specific location within that world. NightCafe’s strength increasingly comes from stacking tools that
+support this pipeline. Faster generation through Lightning models encourages experimentation, Flux models
+improve baseline image correctness, and ControlNet-style guidance stabilizes composition. Individually these
+features are helpful, but together they transform image generation from a one-off novelty into a repeatable
+creative workflow.
+</p>
+
+
+
+<hr style="border:0;border-top:1px solid rgba(255,255,255,.10);margin:22px 0;">
+
+
+
+<h2 style="margin:0 0 10px;">Sources</h2>
+
+<ul style="line-height:1.8;">
+
+<li>
+<a href="https://nightcafe.studio/blogs/blog/updates-5-new-sdxl-lightning-models" target="_blank">
+NightCafe: “5 New SDXL & Lightning Models”
+</a>
+</li>
+
+<li>
+<a href="https://nightcafe.studio/blogs/blog/updates-flux-forever-luma-dream-machine-more" target="_blank">
+NightCafe: “Flux Forever…” update
+</a>
+</li>
+
+<li>
+<a href="https://nightcafe.studio/blogs/blog/updates-flux-ultra-recraft-v3-more" target="_blank">
+NightCafe: “Flux Ultra…” update
+</a>
+</li>
+
+<li>
+<a href="https://help.nightcafe.studio/portal/en/kb/articles/usage-guide-flux-1-kontext-image-editing" target="_blank">
+NightCafe Help: FLUX.1 Kontext Image Editing
+</a>
+</li>
+
+<li>
+<a href="https://nightcafe.studio/blogs/info/what-is-controlnet-stable-diffusion" target="_blank">
+NightCafe: What is ControlNet?
+</a>
+</li>
+
+</ul>
+
+</article>
+
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+
+<div class="footer-inner">
+
+<div>
+<strong>Applied AI Newsletter</strong>
+<div class="muted">CAH 205 · GitHub Pages</div>
+</div>
+
+<div class="muted">© 2026 Batman117</div>
+
+</div>
+
+</footer>
+
 </body>
 </html>
