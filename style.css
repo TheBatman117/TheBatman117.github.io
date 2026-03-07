@@ -988,3 +988,27 @@ tr:hover td{
   .store-grid{ grid-template-columns: 1fr; }
   .store-card-media{ height: 150px; }
 }
+
+/* Story image upgrade */
+article figure{
+  margin: 22px 0;
+}
+
+article figure img{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  background: rgba(255,255,255,.03);
+}
+
+article figcaption{
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  text-align: center;
+}
