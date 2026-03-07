@@ -1,54 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</title>
+  <meta name="description" content="A newsletter story on Claude Code’s adoption surge, Anthropic’s holiday usage boost, and the rise of vibe coding." />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Applied AI Newsletter</h1>
-    <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a>
-    </nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Home">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <span class="logo-text">Applied AI</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="featured.html">Featured</a>
+        <a href="stories.html">Stories</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="cta" href="stories.html">Stories</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <article>
-      <h2>Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</h2>
-      <p class="date">January 25, 2026</p>
+    <section class="section">
+      <article class="card" style="padding: 22px;">
+        <div class="card-top">
+          <span class="tag">AI Coding</span>
+          <span class="date">January 25, 2026</span>
+        </div>
 
-      <p>
-        During the holiday break, Anthropic’s Claude Code advanced from a simple “cool terminal toy” to
-        “oh… this is changing workflows” levels of adoption. The Applied AI Observer pinned the surge to
-        late December 2025, assisted along the way by Anthropic doubling usage limits as a holiday gift
-        and a wave of developers sharing surprisingly capable results. The moment it went actually viral
-        was after one of Google’s engineers, Jaana Dogan posted that Claude Code was able to generate a
-        prototype of something her team had spent a year building, in about an hour (she later clarified
-        it was a toy version, but still a useful starting point).
-      </p>
+        <h1 style="margin: 0 0 14px; font-size: clamp(28px, 3vw, 42px); line-height: 1.08;">
+          Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)
+        </h1>
 
-      <p>
-        Anthropic then shipped over Claude Cowork as a research preview: an agent inside Claude’s macOS
-        app (for Claude Max subscribers) that can work across your local folders and connect to services
-        like Asana and Notion. Anthropic also warned about the obvious risk: if you give an agent file
-        access and your instructions are mushy, it can absolutely delete the wrong thing. Humans do that
-        too, but they usually feel bad afterward.
-      </p>
+        <p style="line-height:1.8;">
+          During the holiday break, Anthropic’s Claude Code advanced from a simple “cool terminal toy” to
+          “oh… this is changing workflows” levels of adoption. The Applied AI Observer pinned the surge to
+          late December 2025, assisted along the way by Anthropic doubling usage limits as a holiday gift
+          and a wave of developers sharing surprisingly capable results. The moment it went actually viral
+          was after one of Google’s engineers, Jaana Dogan posted that Claude Code was able to generate a
+          prototype of something her team had spent a year building, in about an hour. She later clarified
+          it was a toy version, but still a useful starting point.
+        </p>
 
-      <p>
-        My take on it is that the bottleneck is sliding from a “can you implement” to “can you specify and
-        judge.” It works bloody great if you’re precise. But, just as with anything else; if you’re vague,
-        the AI will faithfully build your vagueness into software, which is the most human tradition
-        imaginable.
-      </p>
-    </article>
+        <p style="line-height:1.8;">
+          Anthropic then shipped Claude Cowork as a research preview: an agent inside Claude’s macOS
+          app for Claude Max subscribers that can work across local folders and connect to services
+          like Asana and Notion. Anthropic also warned about the obvious risk: if you give an agent file
+          access and your instructions are vague, it can absolutely delete the wrong thing. Humans do that
+          too, but they usually at least have the decency to look embarrassed afterward.
+        </p>
+
+        <p style="line-height:1.8;">
+          What makes this important is that the bottleneck is shifting from “can you implement” to
+          “can you specify and judge.” Claude Code works extremely well when the user is precise about
+          goals, boundaries, and expected output. But just as with anything else, if the instructions
+          are vague, the AI will faithfully transform that vagueness into software. That might be the
+          most human tradition imaginable: unclear communication followed by disappointment in the result.
+        </p>
+
+        <p style="line-height:1.8;">
+          In that sense, Claude Code did more than trend for a week. It helped normalize a new style of
+          development where users describe intent, let the AI execute a large portion of the implementation,
+          and then step in as editor, reviewer, and judge. That workflow is why “vibe coding” stopped sounding
+          like a joke and started looking like a real shift in how software gets prototyped.
+        </p>
+
+        <hr style="border:0; border-top:1px solid rgba(255,255,255,.10); margin: 22px 0;" />
+
+        <h2 style="margin:0 0 10px;">Sources</h2>
+        <ul style="line-height:1.8;">
+          <li>
+            Anthropic product updates and Claude news:
+            <a href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">
+              anthropic.com/news
+            </a>
+          </li>
+          <li>
+            Applied AI Observer coverage of Claude Code adoption:
+            <a href="https://www.appliedaiobserver.com/" target="_blank" rel="noopener noreferrer">
+              appliedaiobserver.com
+            </a>
+          </li>
+          <li>
+            Anthropic Claude product page:
+            <a href="https://www.anthropic.com/claude" target="_blank" rel="noopener noreferrer">
+              anthropic.com/claude
+            </a>
+          </li>
+        </ul>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 Batman117</p>
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Applied AI Newsletter</strong>
+        <div class="muted">CAH 205 · GitHub Pages</div>
+      </div>
+      <div class="muted">© 2026 Batman117</div>
+    </div>
   </footer>
 </body>
 </html>
