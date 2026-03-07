@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Latest · Applied AI Newsletter</title>
-  <meta name="description" content="Latest posts for the Applied AI Newsletter." />
+  <title>Stories · Applied AI Newsletter</title>
+  <meta name="description" content="Stories for the Applied AI Newsletter." />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,7 +18,7 @@
 
       <nav class="primary-nav" aria-label="Primary">
         <a href="featured.html">Featured</a>
-        <a href="latest.html" aria-current="page">Latest</a>
+        <a href="latest.html">Stories</a>
         <a href="about.html">About</a>
       </nav>
 
@@ -38,88 +38,57 @@
     </div>
     <nav class="drawer-nav" aria-label="Drawer">
       <a href="about.html">Bio</a>
-      <a href="latest.html" id="drawerLatest">Browse Latest</a>
+      <a href="latest.html" id="drawerLatest">Browse Stories</a>
       <a href="mailto:DDB845@lindenwood.edu">Contact me</a>
     </nav>
   </aside>
   <div class="backdrop" id="backdrop" hidden></div>
 
   <main>
-    <section id="latest" class="section alt">
+    <section id="stories" class="section alt">
       <div class="section-head">
-        <h2>Latest</h2>
+        <h2>Stories</h2>
         <span class="muted">Newest first</span>
       </div>
 
-      <ul class="post-list">
+      <div style="margin-bottom: 16px;">
+        <label for="storyFilter" class="muted" style="margin-right: 10px;">Filter:</label>
+        <select id="storyFilter" style="height: 40px; padding: 0 12px; border-radius: 12px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03); color:inherit;">
+          <option value="all">All</option>
+          <option value="nightcafe">NightCafe</option>
+          <option value="agents">Agents</option>
+        </select>
+      </div>
 
-        <!-- NEW STORY 1 -->
-        <li>
-          <a href="nightcafe-nano-banana-2-nextgen-imaging.html">
-            NightCafe’s Nano Banana 2: Speed-First Creative Iteration and Rapid Imaging Workflows
-          </a>
-          <span class="date">March 2, 2026</span>
-        </li>
-
-        <!-- NEW STORY 2 -->
-        <li>
-          <a href="nightcafe-seedream-5-lite-nextgen-imaging.html">
-            Seedream 5.0 Lite: Multi-Reference AI Editing and Next-Gen Imaging Inside NightCafe
-          </a>
-          <span class="date">March 2, 2026</span>
-        </li>
-
-        <!-- EXISTING STORIES (unchanged order after new ones) -->
-
-        <li>
-          <a href="nightcafe-veo-latest-update.html">
-            NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration
-          </a>
+      <ul class="post-list" id="storyList">
+        <li data-category="nightcafe">
+          <a href="nightcafe-veo-latest-update.html">NightCafe’s latest Veo update: “Ingredients to Video,” native vertical output, and faster iteration</a>
           <span class="date">February 13, 2026</span>
         </li>
-
-        <li>
-          <a href="nightcafe-flux2-klein-9b-fast.html">
-            NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits
-          </a>
+        <li data-category="nightcafe">
+          <a href="nightcafe-flux2-klein-9b-fast.html">NightCafe adds “Flux 2 Klein 9B Fast” for near-real-time generation and edits</a>
           <span class="date">February 3, 2026</span>
         </li>
-
-        <li>
-          <a href="nightcafe-three-scenes-workflows.html">
-            NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding
-          </a>
+        <li data-category="nightcafe">
+          <a href="nightcafe-three-scenes-workflows.html">NightCafe workflow upgrade: faster iterations, stronger control, and cinematic “three-scene” worldbuilding</a>
           <span class="date">January 28, 2026</span>
         </li>
-
-        <li>
-          <a href="nightcafe-sdxl-lightning-flux-updates.html">
-            NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features
-          </a>
+        <li data-category="nightcafe">
+          <a href="nightcafe-sdxl-lightning-flux-updates.html">NightCafe adds faster SDXL Lightning options and upgrades Flux pricing and features</a>
           <span class="date">January 25, 2026</span>
         </li>
-
-        <li>
-          <a href="github-agent-hq-cloud-agent.html">
-            GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)
-          </a>
+        <li data-category="agents">
+          <a href="github-agent-hq-cloud-agent.html">GitHub turns into “mission control” for multiple coding agents (Agent HQ + Cloud Agent previews)</a>
           <span class="date">January 25, 2026</span>
         </li>
-
-        <li>
-          <a href="cursor-cli-agent-modes.html">
-            Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff
-          </a>
+        <li data-category="agents">
+          <a href="cursor-cli-agent-modes.html">Cursor pushes agent workflows into the terminal with CLI Agent Modes + Cloud Handoff</a>
           <span class="date">January 25, 2026</span>
         </li>
-
-        <li>
-          <a href="claude-code-holiday-spike.html">
-            Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)
-          </a>
+        <li data-category="agents">
+          <a href="claude-code-holiday-spike.html">Claude Code’s “holiday spike” made vibe coding mainstream (and Anthropic leaned into it)</a>
           <span class="date">January 25, 2026</span>
         </li>
-
       </ul>
     </section>
   </main>
@@ -135,6 +104,7 @@
   </footer>
 
   <script>
+    // Drawer menu
     const menuBtn = document.getElementById('menuBtn');
     const drawer = document.getElementById('drawer');
     const closeBtn = document.getElementById('closeBtn');
@@ -147,7 +117,6 @@
       backdrop.hidden = false;
       backdrop.classList.add('show');
     }
-
     function closeDrawer(){
       drawer.classList.remove('open');
       drawer.setAttribute('aria-hidden','true');
@@ -160,6 +129,23 @@
     closeBtn.addEventListener('click', closeDrawer);
     backdrop.addEventListener('click', closeDrawer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Story filter
+    const storyFilter = document.getElementById('storyFilter');
+    const storyItems = document.querySelectorAll('#storyList li');
+
+    storyFilter.addEventListener('change', () => {
+      const selected = storyFilter.value;
+
+      storyItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (selected === 'all' || category === selected) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
   </script>
 </body>
 </html>
